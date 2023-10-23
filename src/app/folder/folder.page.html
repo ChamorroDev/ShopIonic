@@ -1,0 +1,43 @@
+<ion-header [translucent]="true"class="bartop">
+  <ion-toolbar class="bartop">
+    <ion-buttons slot="start" >
+      <div class="topbarelementos">
+        <h1 class="color-blanco">Tienda </h1>
+      </div>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<div class="divbuscador">
+  <ion-toolbar class="buscador">
+    <ion-searchbar  placeholder="Buscador" animated (ionChange)="searchProductos($event)" ></ion-searchbar>
+  </ion-toolbar>
+</div>
+
+
+
+<ion-content>
+  <ion-row  *ngIf="mostrarElemento">
+    <ion-col *ngFor="let product of productos">
+      <div class="custom-product-card" >
+        <div [routerLink]="['/folder/tienda-producto', product.id]">
+
+            <div class="div-imagen">
+              <ion-img class="custom-image" src="{{product.fotos[0]}}" alt="{{ product.nombre }}"></ion-img>
+            </div>
+            <ion-card-header>
+              <ion-card-title class="product-description">{{ formatPrice(product.precio) }}</ion-card-title>
+              <ion-card-title class="product-description">{{ product.nombre }}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <p class="product-description">{{ product.descripcion }}</p>
+            </ion-card-content>
+          </div>
+          <ion-button type="submit"  vertical="bottom"    color="azul" expand="block">Agregar al carro</ion-button>
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-content>
+
+
+
+<footer-menu></footer-menu>

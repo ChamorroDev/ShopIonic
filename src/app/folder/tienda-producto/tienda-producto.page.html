@@ -1,0 +1,117 @@
+
+<app-loading *ngIf="isLoading"></app-loading>
+<ion-header [translucent]="true"class="bartop">
+  <ion-toolbar class="bartop">
+    <ion-buttons slot="start" >
+      <div class="topbarelementos">
+        <div class="xd"  >
+          <ion-icon [routerLink]="['/folder']" color="light" name="arrow-back" size="large"></ion-icon>
+        </div>
+        <h1 class="color-blanco">Detalle del producto </h1>
+      </div>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content *ngIf="!isLoading"> 
+      <swiper-container
+      #swiper
+      [pagination]="true"
+      [zoom]="true">
+
+      <swiper-slide *ngFor="let foto of fotos">
+        <div class="swiper-zoom-container">
+          <img src="{{ foto.foto }}" alt="imagen" />
+        </div>
+      </swiper-slide>
+    </swiper-container>
+
+
+  <ion-card-content>
+    <ion-list>
+      <ion-item>
+        <h2 class="titulo">{{producto.nombre}}</h2>
+      </ion-item>
+      
+      <ion-item>
+        <ion-card-title class="valor-enfocado">{{ formatPrice(producto.precio) }}</ion-card-title>
+
+      </ion-item>
+    </ion-list>
+    
+    <ion-list>
+
+      <ion-item>
+      <div class="description-container">
+        <label class="titulo"> Descripción</label>
+        <p>{{ producto.descripcion }}</p>
+      </div>
+    </ion-item>
+    </ion-list>
+    <ion-list>
+      <ion-item>
+        <ion-label class="titulo">Marca</ion-label>
+        <ion-text>{{ marca.nombre }}</ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-label class="titulo">Código</ion-label>
+        <ion-text>032</ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-label class="titulo">Cantidad</ion-label>
+        <ion-text>30</ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-label class="titulo">Precio</ion-label>
+        <ion-text>$1.000</ion-text>
+      </ion-item>
+      
+        <ion-item *ngFor="let atributo of atributosArray">
+          <ion-label class="titulo">{{ atributo.nombreAtributo }}</ion-label>
+          <ion-text>{{ atributo.valorAtributo }}</ion-text>
+        </ion-item>
+        
+        <ion-item>
+          <div class="description-container">
+            <h2 class="titulo">Categorías</h2>
+          </div>
+        </ion-item>
+        <ion-item *ngFor="let categoria of categoriasProducto">
+          <ion-text>{{ categoria.name }}</ion-text>
+        </ion-item>
+        
+     
+    </ion-list>
+
+
+
+    <ion-grid>
+      <ion-row>
+        <ion-col class="quantity-buttons-container">
+        <ion-button (click)="decrementValue()" color="medium">-</ion-button>
+          
+
+          <div class="quantity">
+            {{quantity}}
+          </div>
+       
+        <ion-button (click)="incrementValue()" color="medium">+</ion-button>
+          
+        </ion-col>
+
+        <ion-col>
+          <ion-button (click)="addcart()" color="success">Añadir al carrito</ion-button>
+
+            
+          </ion-col>
+      </ion-row>
+
+    </ion-grid>
+
+
+  </ion-card-content>
+
+</ion-content>

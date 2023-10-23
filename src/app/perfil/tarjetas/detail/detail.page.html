@@ -1,0 +1,66 @@
+<ion-header [translucent]="true"class="bartop">
+  <ion-toolbar class="bartop">
+    <ion-buttons slot="start" >
+      <div class="topbarelementos">
+        <div class="xd"  >
+
+          <ion-icon [routerLink]="['/perfil/tarjetas']" color="light" name="arrow-back" size="large"></ion-icon>
+        </div>
+        <h1 class="color-blanco">Detalle de la tarjeta </h1>
+
+      </div>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+  
+
+    <ion-item class="bg-gris bold">
+      <h3>Nombre de la tarjeta</h3>
+    </ion-item>
+    <ion-item >
+      <h3>{{tarjeta.nombre}}</h3>
+    </ion-item>
+    <ion-item class="bg-gris bold">
+      <h3>Número de la tarjeta</h3>
+    </ion-item>
+    <ion-item >
+      <h3>{{tarjeta.numero}}</h3>
+    </ion-item>
+    <ion-item class="bg-gris bold">
+      <h3>CVC</h3>
+    </ion-item>
+    <ion-item >
+      <h3>{{tarjeta.csv}}</h3>
+    </ion-item>
+    <ion-item class="bg-gris bold">
+      <h3>Mes de vencimiento</h3>
+    </ion-item>
+    <ion-item >
+      <h3>{{tarjeta.mesvenc}}</h3>
+    </ion-item>
+    <ion-item class="bg-gris bold">
+      <h3>Año de vencimiento</h3>
+    </ion-item>
+    <ion-item >
+      <h3>{{tarjeta.annovenc}}</h3>
+    </ion-item>
+
+
+    <ion-item class="bg-gris bold">
+      <h3>Estado {{ tarjeta.actived ? 'habilitada' : 'deshabilitada' }}</h3>
+    </ion-item>
+    <ion-item >
+      <h3>{{ tarjeta.actived ? 'Habilitada' : 'Deshabilitada' }}</h3>
+    </ion-item>
+
+    <ion-button type="submit"  color="azul" expand="block" [routerLink]="['/perfil/tarjetas/edit',tarjeta.id]">Modificar</ion-button>
+
+  </ion-card>
+</ion-content>
+
+
+<footer-menu></footer-menu>

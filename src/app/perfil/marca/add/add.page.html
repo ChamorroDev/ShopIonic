@@ -1,0 +1,41 @@
+<ion-header [translucent]="true"class="bartop">
+  <ion-toolbar class="bartop">
+    <ion-buttons slot="start" >
+      <div class="topbarelementos">
+        <div class="xd"  >
+
+          <ion-icon [routerLink]="['/perfil/marca']" color="light" name="arrow-back" size="large"></ion-icon>
+        </div>
+
+        <h1 class="color-blanco">Agregar nueva marca </h1>
+
+      </div>
+    </ion-buttons>
+
+
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+
+
+  <form [formGroup]="marcaForm" (ngSubmit)="onFormSubmit(marcaForm.value)">
+  <ion-card>
+
+      <ion-item class="bg-gris bold">
+        <h3>Nombre de la marca</h3>
+      </ion-item>
+      <ion-item >
+        <ion-input type="text" [(ngModel)]="marca.nombre"placeholder="Ingresar nombre"  formControlName="prod_name"></ion-input>
+      </ion-item>
+
+      <ion-button type="submit"  color="azul" expand="block" 
+      [disabled]="!marcaForm.valid">Guardar</ion-button>
+    </ion-card>
+  </form>
+
+
+</ion-content>
+
+<footer-menu></footer-menu>

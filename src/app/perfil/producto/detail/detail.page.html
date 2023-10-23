@@ -1,0 +1,82 @@
+<ion-header [translucent]="true"class="bartop">
+  <ion-toolbar class="bartop">
+    <ion-buttons slot="start" >
+      <div class="topbarelementos">
+        <div class="xd"  >
+          <ion-icon [routerLink]="['/perfil/producto']" color="light" name="arrow-back" size="large"></ion-icon>
+        </div>
+        <h1 class="color-blanco">Detalle del producto </h1>
+      </div>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+
+  <ion-item class="bg-gris bold">
+    <h3>Nombre del producto</h3>
+  </ion-item>
+  <ion-item>
+    <p>
+      {{ producto.nombre }}
+    </p>
+  </ion-item>
+  <ion-item class="bg-gris bold">
+    <h3>Descripción</h3>
+  </ion-item>
+  <ion-item>
+    <p>
+      {{ producto.descripcion }}
+    </p>
+  </ion-item>
+
+  <ion-item class="bg-gris bold">
+    <h3>Marca del producto</h3>
+  </ion-item>
+  <ion-item>
+    <p>
+      {{ marca.nombre }}
+    </p>
+  </ion-item>
+  
+  <ion-item class="bg-gris bold">
+    <h3>Modelo del producto</h3>
+  </ion-item>
+  <ion-item>
+    <p>
+      {{ producto.modelo }}
+    </p>
+  </ion-item>
+
+  <ion-item class="bg-gris bold">
+    <h3>Categorías</h3>
+  </ion-item>
+  <ion-item *ngFor="let cat of categoriasFiltradas ">{{ cat.name  }}
+  </ion-item>
+  
+  <ion-item class="bg-gris bold">
+    <h3>Atributos</h3>
+  </ion-item>
+  <ion-item *ngFor="let cat of tipoProductoAtributo ">{{ cat.atributo_nombre  }}:{{ cat.atributo_valor  }}
+  </ion-item>
+
+  <ion-item class="bg-gris bold">
+    <h3>Galería de fotos</h3>
+  </ion-item>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" *ngFor="let foto of fotos">
+        <ion-img [src]="foto.foto"></ion-img>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+  
+
+    <ion-button type="submit"  color="azul" expand="block" href="perfil/producto/edit/{{producto.id}}">Editar</ion-button>
+    <ion-button type="submit" color="danger" expand="block" (click)="desactivar(producto.id)">Desactivar</ion-button>
+  </ion-card>
+    
+</ion-content>

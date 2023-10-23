@@ -1,0 +1,45 @@
+<ion-header [translucent]="true"class="bartop">
+  <ion-toolbar class="bartop">
+    <ion-buttons slot="start" >
+      <div class="topbarelementos">
+
+
+        <h1 class="color-blanco">Error en el pago </h1>
+
+      </div>
+    </ion-buttons>
+
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+
+  <div class="danger ">
+
+  <ion-col class="icon-column">
+    <div class="circle-icon">
+      <ion-icon  name="close-circle"></ion-icon>
+
+    </div>
+    <h6 class="bold white"  size="large">Pago rechazado</h6>
+
+  </ion-col>
+</div>
+<ion-card>
+   <ion-item class="bg-grisclaro bold">
+  <h3>TIPO DE ERROR</h3>
+  </ion-item>
+  <ion-item >
+    <h3>{{mensaje}}</h3>
+  </ion-item>
+
+
+</ion-card>
+
+
+
+
+</ion-content>
+
+<footer-menu></footer-menu>

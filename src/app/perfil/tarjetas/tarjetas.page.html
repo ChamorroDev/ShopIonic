@@ -1,0 +1,37 @@
+<header-menu>
+  
+</header-menu>
+
+<ion-content [fullscreen]="true">
+
+  <ion-card *ngFor="let tar of searchTarjeta" [routerLink]="['/perfil/tarjetas/detail',tar.id]">
+
+        <ion-item class="bg-gris bold">
+          <h3>Nombre de la tarjeta</h3>
+        </ion-item>
+        <ion-item >
+          <h3>{{tar.nombre}}</h3>
+        </ion-item>
+        <ion-item class="bg-gris bold">
+          <h3>Agregada </h3>
+        </ion-item>
+        <ion-item>
+          <h3>{{ tar.created|date:"d/MM/Y" }}</h3>
+        </ion-item>
+         
+  </ion-card>
+
+
+
+
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button color="azul">
+    <ion-icon name="add"size="large" [routerLink]="['/perfil/tarjetas/add']"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+</ion-content>
+
+
+
+<footer-menu></footer-menu>

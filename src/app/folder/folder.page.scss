@@ -1,0 +1,81 @@
+
+
+
+ion-searchbar {
+  --background: white;
+  --border-radius: 5px;
+  --placeholder-color: #fff;
+  --input-padding-start: 10px;
+  --input-padding-end: 10px;
+  --searchbar-icon-color: #fff;
+
+
+  --searchbar-input-border-color: #FF6200;
+}
+
+
+
+
+
+.topbarelementos{
+  display: flex;
+  align-items: center;
+}
+
+.color-blanco{
+  color: white;
+}
+.buscador{
+  --background:#00bbfe ;
+}
+.divbuscador{ 
+  display: flex;
+}
+
+
+
+.product-description {
+  max-height: 1em; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.2em; 
+}
+
+
+
+.div-imagen img {
+    width: auto;
+    height: 100%; 
+    max-width: 100;
+  }
+
+
+
+
+
+  .custom-product-card {
+    width: 200px;
+    border: 1.5px solid #e3e3e3 ;
+    border-bottom-color:white;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    box-shadow:  border-box; 
+} 
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+

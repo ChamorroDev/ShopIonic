@@ -1,0 +1,96 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+ .fullscreen-loading .loading-wrapper {
+  display: none;
+}
+
+.fullscreen-loading::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('~src/assets/loading/loading.gif'); 
+  background-size: 100% 100%; 
+  background-repeat: no-repeat; 
+  background-color: rgba(255, 255, 255, 1); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+ .rojito{
+    color:red;
+ }
+
+ .tituloxparrafo{
+    display: flex;
+    flex-direction: column;
+}
+.bartop{
+    --background:#00bbfe ;
+  }
+  .btn-tucuenta{
+    --background:#00ccff ;
+  }
+  
+  .topbarelementos{ 
+    display: flex;
+    align-items: center;
+  }
+  .xd{
+    padding-top: 10px;
+    margin-left: 10px;
+  }
+  .color-blanco{
+    color: white;
+  }
+  .bg-gris{
+    --background: #dedede;
+  }
+  .bold{
+    font-weight: bold;
+  }
+  .ion-color-azul {
+    --ion-color-base: var(--ion-color-azul);
+    --ion-color-base-rgb: var(--ion-color-azul-rgb);
+    --ion-color-contrast: var(--ion-color-azul-contrast);
+    --ion-color-contrast-rgb: var(--ion-color-azul-contrast-rgb);
+    --ion-color-shade: var(--ion-color-azul-shade);
+    --ion-color-tint: var(--ion-color-azul-tint);
+  }
+  ion-button[type="submit"] {
+    --ion-background-color: #3880ff;
+    --ion-text-color: #fff;
+    border: none;
+    border-radius: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+    width: 100%;
+  }
+/* Core CSS required for Ionic components to work properly */
+@import "@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import '@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";

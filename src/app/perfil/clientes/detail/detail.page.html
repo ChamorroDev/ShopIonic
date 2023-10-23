@@ -1,0 +1,60 @@
+<ion-header [translucent]="true"class="bartop">
+  <ion-toolbar class="bartop">
+    <ion-buttons slot="start" >
+      <div class="topbarelementos">
+        <div class="xd"  >
+          <ion-icon [routerLink]="['/perfil/clientes']" color="light" name="arrow-back" size="large"></ion-icon>
+        </div>
+        <h1 class="color-blanco">Información del cliente </h1>
+      </div>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+
+  <ion-item class="bg-gris bold">
+    <h3>
+      RUT 
+
+    </h3>
+  </ion-item>
+  <ion-item>
+    <p>{{ cliente.rut }}-
+      {{ cliente.dv }}</p>
+
+  </ion-item>
+  <ion-item class="bg-gris bold">
+    <h3>Nombre del cliente</h3>
+  </ion-item>
+  <ion-item>
+    <p>{{ cliente.nombre }}
+      {{ cliente.appaterno }}
+      {{ cliente.apmaterno }}</p>
+  </ion-item>
+  <ion-item class="bg-gris bold">
+    <h3>Correo electrónico</h3>
+  </ion-item>
+  <ion-item>
+    <p>
+      {{ cliente.email }}
+    </p>
+  </ion-item>
+  <ion-item class="bg-gris bold">
+    <h3>Teléfono</h3>
+  </ion-item>
+  <ion-item>
+    <p>
+      +{{ cliente.telefono }}
+    </p>
+  </ion-item>
+
+ 
+
+  </ion-card>
+    
+
+</ion-content>
+
+<footer-menu></footer-menu>

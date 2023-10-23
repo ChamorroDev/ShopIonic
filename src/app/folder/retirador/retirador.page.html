@@ -1,0 +1,58 @@
+<ion-header [translucent]="true"class="bartop">
+  <ion-toolbar class="bartop">
+    <ion-buttons slot="start" >
+      <div class="topbarelementos">
+        <div class="xd"  >
+
+          <ion-icon [routerLink]="['/folder/sucursal']" color="light" name="arrow-back" size="large"></ion-icon>
+        </div>
+
+        <h1 class="color-blanco">Datos personales </h1>
+
+      </div>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <form [formGroup]="retiroForm" (ngSubmit)="onFormSubmit(retiroForm.value)">
+
+  <ion-item class="bg-gris bold">
+    <h3>Quien retira</h3>
+  </ion-item>
+
+    <ion-item  class="margintop">
+      <div class="flex width90">
+        <h4>RUT</h4>
+        <h6>Sin puntos y con guion</h6>
+
+        <ion-input type="text" (ionChange)="separarRut()" formControlName="rut"></ion-input>
+      </div>
+    </ion-item>
+    <ion-item  class="margintop">
+      <div class="flex width90">
+        <h4>Nombre</h4>
+        <ion-input type="text"  formControlName="nombre"></ion-input>
+      </div>
+    </ion-item>
+    <ion-item  class="margintop">
+      <div class="flex width90">
+        <h4>Apellido</h4>
+        <ion-input type="text"  formControlName="apellido"></ion-input>
+      </div>
+    </ion-item>
+    
+    <ion-footer class="bg-white">
+      <div class="productCart-wrapper">
+        <button type="submit" shape="round" color="primary" expand="block"
+        [disabled]="!retiroForm.valid"class="cart-btn" >Continuar</button>
+      </div>
+    </ion-footer>
+    </form>
+  
+
+  
+</ion-content>
+
+

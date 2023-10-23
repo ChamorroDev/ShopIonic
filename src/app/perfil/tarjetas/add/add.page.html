@@ -1,0 +1,74 @@
+<ion-header [translucent]="true"class="bartop">
+  <ion-toolbar class="bartop">
+    <ion-buttons slot="start" >
+      <div class="topbarelementos">
+        <div class="xd"  >
+
+          <ion-icon [routerLink]="['/perfil/tarjetas']" color="light" name="arrow-back" size="large"></ion-icon>
+        </div>
+        <h1 class="color-blanco">Agregar nueva tarjeta </h1>
+
+      </div>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <ion-card>
+
+  <form [formGroup]="tarjetaForm" (ngSubmit)="onFormSubmit(tarjetaForm.value)">
+
+    <ion-item class="bg-gris bold">
+      <h3>Nombre de la tarjeta</h3>
+    </ion-item>
+    <ion-item >
+      <ion-input type="text" [(ngModel)]="tarjeta.nombre" placeholder="Ingresar un nombre" formControlName="tarjeta_nombre"></ion-input>
+
+    </ion-item>
+
+    <ion-item class="bg-gris bold">
+      <h3>Número de tarjeta</h3>
+    </ion-item>
+    <ion-item >
+      <ion-input type="text" [(ngModel)]="tarjeta.numero"placeholder="Ingresar número" formControlName="tarjeta_numero"></ion-input>
+
+    </ion-item>
+
+    <ion-item class="bg-gris bold">
+      <h3>CVC</h3>
+    </ion-item>
+    <ion-item >
+      <ion-input type="text" [(ngModel)]="tarjeta.csv" placeholder="Ingresar CVC" formControlName="tarjeta_csv"></ion-input>
+
+    </ion-item>
+
+    <ion-item class="bg-gris bold">
+      <h3>Mes de vencimiento</h3>
+    </ion-item>
+    <ion-item >
+      <ion-input type="text" [(ngModel)]="tarjeta.mesvenc" placeholder="Ingresar mes de vencimiento"formControlName="tarjeta_mesvenc"></ion-input>
+
+    </ion-item>
+
+    <ion-item class="bg-gris bold">
+      <h3>Año de vencimiento</h3>
+    </ion-item>
+    <ion-item >
+      <ion-input type="text" [(ngModel)]="tarjeta.annovenc" placeholder="Ingresar año de vencimiento" formControlName="tarjeta_annovenc"></ion-input>
+
+    </ion-item>
+
+
+
+
+
+    <ion-button type="submit" color="azul" expand="block"
+      [disabled]="!tarjetaForm.valid">Guardar</ion-button>
+  </form>
+</ion-card>
+
+</ion-content>
+
+
+<footer-menu></footer-menu>

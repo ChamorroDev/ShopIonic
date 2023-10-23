@@ -1,0 +1,96 @@
+ion-title {
+  font-size: 24px;
+}
+
+ion-content {
+  --ion-background-color: #f4f4f4;
+  padding: 16px;
+}
+
+ion-item-group {
+  margin: 70px;
+  background-color: #ffffff; /* Agrega un fondo blanco para cada tarjeta */
+  border-radius: 10px; /* Agrega bordes redondeados */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Agrega sombra */
+}
+
+.divisor {
+  background-color: #f4f4f4;
+}
+
+.iconoTrash {
+  font-size: 24px;
+  margin-right: 16px;
+  color: #ff4b4b; /* Cambia el color del ícono de eliminación a rojo */
+}
+
+ion-fab-button {
+  --background: #3880ff;
+  --background-activated: #316fce;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: beige;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  background-image: url("../../../assets/tarjeta/images/bg.png");
+  background-size: cover;
+  padding: 25px;
+  border-radius: 10px;
+  width: 100%;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+header,
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo img {
+  width: 48px;
+  margin-right: 10px;
+}
+
+h5 {
+  color: #fff; /* Cambia el color del texto a blanco */
+  font-size: 16px; /* Ajusta el tamaño de fuente */
+}
+
+header .chip {
+  width: 60px;
+}
+
+h6 {
+  color: #fff; /* Cambia el color del texto a blanco */
+  font-size: 12px;
+  font-weight: 400;
+}
+
+h5.number {
+  margin-top: 4px;
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+
+h5.name {
+  margin-top: 20px;
+  font-size: 20px; /* Ajusta el tamaño de fuente */
+  font-weight: bold; /* Hace que el nombre sea más destacado */
+}
+
+.container .card-details {
+  margin-top: 20px; /* Ajusta el espacio superior */
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Centra verticalmente */
+}

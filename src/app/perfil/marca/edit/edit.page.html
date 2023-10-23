@@ -1,0 +1,52 @@
+<ion-header [translucent]="true"class="bartop">
+  <ion-toolbar class="bartop">
+    <ion-buttons slot="start" >
+      <div class="topbarelementos">
+        <div class="xd"  >
+
+          <ion-icon [routerLink]="['/perfil/marca']" color="light" name="arrow-back" size="large"></ion-icon>
+        </div>
+
+        <h1 class="color-blanco">Editar marca </h1>
+
+      </div>
+    </ion-buttons>
+
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+
+  <form [formGroup]="marcaForm"  (ngSubmit)="onFormSubmit(marcaForm.value)">
+ 
+    <ion-item class="bg-gris bold">
+      <h3>Nombre de marca</h3>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" [(ngModel)]="marca.nombre"placeholder="Ingresar nombre"  formControlName="marca_nombre"></ion-input>
+    </ion-item>
+      <ion-item class="bg-gris bold">
+      <h3>Estado de la marca</h3>
+    </ion-item>
+    <ion-item>
+      <ion-select formControlName="marca_activo"  [(ngModel)]="marca.actived"
+      label="Selecciona un estado" 
+      cancelText="Cancelar" 
+      okText="Aceptar">
+        <ion-select-option value=1>Habilitar</ion-select-option>
+        <ion-select-option value=0>Deshabilitar</ion-select-option>
+      </ion-select>
+    </ion-item>
+      <ion-item>
+      <ion-label> La marca  esta {{ marca.actived ? 'habilitada' : 'deshabilitada' }}</ion-label>
+      </ion-item>
+
+    <ion-button type="submit" color="azul" expand="block" [disabled]="!marcaForm.valid">Guardar editado</ion-button>
+  </form>
+</ion-card>
+  
+</ion-content>
+
+<footer-menu></footer-menu>

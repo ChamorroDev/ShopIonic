@@ -1,0 +1,58 @@
+<ion-header [translucent]="true"class="bartop">
+  <ion-toolbar class="bartop">
+    <ion-buttons slot="start" >
+      <div class="topbarelementos">
+        <div class="xd"  >
+
+          <ion-icon [routerLink]="['/perfil/cargo']" color="light" name="arrow-back" size="large"></ion-icon>
+        </div>
+
+        <h1 class="color-blanco">Editar cargo </h1>
+
+      </div>
+    </ion-buttons>
+
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+
+  <form [formGroup]="cargoForm"  (ngSubmit)="onFormSubmit(cargoForm.value)">
+
+    <ion-item class="bg-gris bold">
+      <h3>Nombre del cargo</h3>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" [(ngModel)]="cargo.nombre"placeholder="Ingresar nombre"  formControlName="cargo_nombre"></ion-input>
+    </ion-item>
+    <ion-item class="bg-gris bold">
+      <h3>Codigo del cargo</h3>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" [(ngModel)]="cargo.codigo"placeholder="Ingresar codigo"  formControlName="cargo_codigo"></ion-input>
+    </ion-item>
+      <ion-item class="bg-gris bold">
+      <h3>Estado del cargo</h3>
+    </ion-item>
+    <ion-item>
+      <ion-select formControlName="cargo_activo"  [(ngModel)]="cargo.actived"
+      label="Selecciona un estado"
+      cancelText="Cancelar"
+      okText="Aceptar">
+        <ion-select-option value=1>Habilitar</ion-select-option>
+        <ion-select-option value=0>Deshabilitar</ion-select-option>
+      </ion-select>
+    </ion-item>
+      <ion-item>
+      <ion-label> el cargo  esta {{ cargo.actived ? 'habilitadO' : 'deshabilitado' }}</ion-label>
+      </ion-item>
+
+    <ion-button type="submit" color="azul" expand="block" [disabled]="!cargoForm.valid">Guardar cambios</ion-button>
+  </form>
+</ion-card>
+
+</ion-content>
+
+<footer-menu></footer-menu>

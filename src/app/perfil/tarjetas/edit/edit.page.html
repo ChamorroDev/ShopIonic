@@ -1,0 +1,82 @@
+<ion-header [translucent]="true"class="bartop">
+  <ion-toolbar class="bartop">
+    <ion-buttons slot="start" >
+      <div class="topbarelementos">
+        <div class="xd"  >
+
+          <ion-icon [routerLink]="['/perfil/tarjetas']" color="light" name="arrow-back" size="large"></ion-icon>
+        </div>
+
+        <h1 class="color-blanco">Editar tarjeta </h1>
+
+      </div>
+    </ion-buttons>
+
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+
+  <form [formGroup]="tarjetaForm"  (ngSubmit)="onFormSubmit( tarjetaForm.value)">
+    <ion-item class="bg-gris bold">
+      <h3>Nombre de la tarjeta</h3>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" [(ngModel)]="tarjeta.nombre"placeholder="Ingresar nombre"  formControlName="tarjeta_nombre"></ion-input>
+    </ion-item>
+
+    <ion-item class="bg-gris bold">
+      <h3>Número de la tarjeta</h3>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" [(ngModel)]="tarjeta.numero"placeholder="Ingresar numero"  formControlName="tarjeta_numero"></ion-input>
+    </ion-item>
+
+    <ion-item class="bg-gris bold">
+      <h3>CVC</h3>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" [(ngModel)]="tarjeta.csv"placeholder="Ingresar numero"  formControlName="tarjeta_csv"></ion-input>
+    </ion-item>
+
+    <ion-item class="bg-gris bold">
+      <h3>Mes de vencimiento </h3>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" [(ngModel)]="tarjeta.mesvenc"placeholder="Ingresar mes de vencimiento"  formControlName="tarjeta_mesvenc"></ion-input>
+    </ion-item>
+
+    <ion-item class="bg-gris bold">
+      <h3>Año de vencimiento </h3>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" [(ngModel)]="tarjeta.annovenc"placeholder="Ingresar año de vencimiento"  formControlName="tarjeta_annovenc"></ion-input>
+    </ion-item>
+
+    <ion-item class="bg-gris bold">
+      <h3>La tarjeta  está {{ tarjeta.actived ? 'habilitada' : 'deshabilitada' }}</h3>
+    </ion-item>
+
+
+    <ion-item>
+
+      <ion-label>Estado de la tarjeta </ion-label>
+      <ion-select formControlName="tarjeta_activo"  [(ngModel)]="tarjeta.actived"
+      label="Cambiar estado" 
+      cancelText="Cancelar" 
+      okText="Aceptar">
+        <ion-select-option value=1>Habilitar</ion-select-option>
+        <ion-select-option value=0>Deshabilitar</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-button type="submit"  color="azul" expand="block" [disabled]="!tarjetaForm.valid">Guardar cambios</ion-button>
+  </form>
+</ion-card>
+
+</ion-content>
+
+<footer-menu></footer-menu>
+

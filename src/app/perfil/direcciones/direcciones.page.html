@@ -1,0 +1,30 @@
+<header-menu>
+  
+</header-menu>
+
+<ion-content >
+
+
+  <ion-card   *ngFor="let dir of direcciones"  [routerLink]="['/perfil/direcciones/edit',dir.id]">
+    
+        <ion-item class="bg-gris bold">
+          <h6>{{ dir.calle }} #{{ dir.numero }} 
+            </h6>
+        </ion-item>    
+    
+        <ion-item>
+              <h6>Ubicación: {{ dir.ciudad_nombre }}, {{ dir.region_nombre }}</h6> 
+        </ion-item>
+  </ion-card>
+
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="azul">
+      <ion-icon name="add"size="large" [routerLink]="['/perfil/direcciones/add']"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>
+
+
+<footer-menu></footer-menu>

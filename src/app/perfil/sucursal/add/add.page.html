@@ -1,0 +1,77 @@
+<ion-header [translucent]="true"class="bartop">
+  <ion-toolbar class="bartop">
+    <ion-buttons slot="start" >
+      <div class="topbarelementos">
+        <div class="xd"  >
+
+          <ion-icon [routerLink]="['/perfil/sucursal']" color="light" name="arrow-back" size="large"></ion-icon>
+        </div>
+
+        <h1 class="color-blanco">Agregar nueva sucursal </h1>
+
+      </div>
+    </ion-buttons>
+
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-card>
+
+  <form [formGroup]="sucursalForm"  (ngSubmit)="onFormSubmit(sucursalForm.value)">
+
+    <ion-item class="bg-gris bold">
+      <h3>Nombre de la sucursal</h3>
+    </ion-item>
+    <ion-item >
+      <ion-input type="text" [(ngModel)]="sucursal.nombre" placeholder="Ingresa nombre" formControlName="sucursal_name"></ion-input>
+    </ion-item>
+
+    <ion-item class="bg-gris bold">
+      <h3>Dirección</h3>
+    </ion-item>
+    <ion-item >
+      <ion-input type="text" [(ngModel)]="sucursal.direccion" placeholder="Ingresa direccion" formControlName="sucursal_direccion"></ion-input>
+    </ion-item>
+
+
+    <ion-item class="bg-gris bold">
+      <h3>Número</h3>
+    </ion-item>
+    <ion-item >
+      <ion-input type="text" [(ngModel)]="sucursal.numeracion" placeholder="Ingresa numeracion" formControlName="sucursal_enumeracion"></ion-input>
+    </ion-item>
+
+    <ion-item class="bg-gris bold">
+      <h3>Región</h3>
+    </ion-item>
+
+    <ion-item>
+      <ion-select formControlName="sucursal_region" placeholder="Seleccionar Región" (ionChange)="filtrarCiudadesPorRegion($event)"cancelText="Cancelar" okText="Aceptar" label="Regiones">
+        <ion-select-option *ngFor="let region of regiones" [value]="region.id">{{ region.nombre }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    
+    <ion-item class="bg-gris bold">
+      <h3>Ciudad</h3>
+    </ion-item>
+    <ion-item>
+      <ion-select formControlName="sucursal_ciudad" placeholder="Seleccionar Ciudad"cancelText="Cancelar" okText="Aceptar" label="Ciudades">
+        <ion-select-option *ngFor="let ciudad of ciudadesFiltradas" [value]="ciudad.id">{{ ciudad.nombre }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    
+    <ion-button type="submit"  color="azul" expand="block" [disabled]="!sucursalForm.valid">Guardar nueva sucursal</ion-button>
+    
+  </form>
+
+</ion-card>
+
+</ion-content>
+
+<footer-menu></footer-menu>
+
+
+

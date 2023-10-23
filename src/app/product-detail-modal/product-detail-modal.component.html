@@ -1,0 +1,64 @@
+<ion-card>
+  <ion-card-header>
+    <ion-toolbar>
+      <ion-title>{{ product.name }}</ion-title>
+      <ion-buttons slot="end">
+        <ion-button (click)="closeModal()">
+          <ion-icon name="close"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-card-header>
+  <ion-card-content>
+    <img src="https://www.pngitem.com/pimgs/m/3-39099_4-coming-soon-stamp-coming-soon-logo-png.png" [alt]="product.name" class="img" style="width: 100%; height: auto;">
+    <ion-list>
+
+      <ion-title>{{product.nombre}}</ion-title>
+      
+      <ion-title>Descripción</ion-title>
+      <p>{{ product.descripcion }}</p>
+    </ion-list>
+    <ion-list>
+      <ion-item>
+        <ion-label>Marca</ion-label>
+        <ion-text>{{ marcaNombre }}</ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-label>Código</ion-label>
+        <ion-text>032</ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-label>Cantidad</ion-label>
+        <ion-text>30</ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-label>Precio</ion-label>
+        <ion-text>$1.000</ion-text>
+      </ion-item>
+      
+        <ion-item *ngFor="let atributo of listaAtris">
+          <ion-label>{{ atributo.nombreAtributo }}</ion-label>
+          <ion-text>{{ atributo.valorAtributo }}</ion-text>
+              
+        </ion-item>
+        
+        
+     
+    </ion-list>
+
+    <ion-row class="numeric-input">
+      <ion-col>
+        <ion-button (click)="decrementValue()" color="medium">-</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-input [(ngModel)]="quantity" [placeholder]="'1'"></ion-input>
+      </ion-col>
+      <ion-col>
+        <ion-button (click)="incrementValue()" color="medium">+</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button (click)="addcart()" color="success">Añadir al carrito</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-card-content>
+</ion-card>

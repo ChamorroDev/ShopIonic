@@ -1,0 +1,36 @@
+<header-menu>
+  
+</header-menu>
+
+<ion-toolbar class="buscador">
+  <ion-searchbar  placeholder="Buscador" animated (ionChange)="searchCategorias($event)" ></ion-searchbar>
+</ion-toolbar>
+
+<ion-content  >
+      <ion-card class="miDiv  "*ngFor="let cat of searchCategoria" [routerLink]="['/perfil/categoria/edit',cat.id]" >
+        <ion-item class="bg-gris bold">
+              <h6>{{ cat.name }}</h6>
+        </ion-item>    
+        
+        <ion-item>
+              <h6>Modificado: {{ cat.edited|date:"d/MM/Y H:mm:s" }}</h6> 
+        </ion-item>
+
+        <ion-item>
+              <h6>Creado: {{ cat.created|date:"d/MM/Y H:mm:s" }}</h6> 
+        </ion-item>
+      </ion-card>
+
+      <ion-fab vertical="bottom" horizontal="end" slot="fixed"  >
+        <ion-fab-button color="azul"  >
+          <ion-icon name="add" class="btnAñadir"  size="large" [routerLink]="['/perfil/categoria/add']"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+      
+</ion-content>
+
+
+
+<footer-menu>
+  
+</footer-menu>

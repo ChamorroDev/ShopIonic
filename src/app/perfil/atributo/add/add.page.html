@@ -1,0 +1,40 @@
+<ion-header [translucent]="true"class="bartop">
+  <ion-toolbar class="bartop">
+    <ion-buttons slot="start" >
+      <div class="topbarelementos">
+        <div class="xd"  >
+
+          <ion-icon [routerLink]="['/perfil/atributo']" color="light" name="arrow-back" size="large"></ion-icon>
+        </div>
+
+        <h1 class="color-blanco">Agregar nuevo atributo </h1>
+
+      </div>
+    </ion-buttons>
+
+
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card>
+
+  <form [formGroup]="atributoForm" (ngSubmit)="onFormSubmit(atributoForm.value)">
+    <ion-item class="bg-gris bold">
+      <h3>Nombre de atributo</h3>
+    </ion-item>
+    <ion-item>
+
+      <ion-input type="text" placeholder="Ingresar nombre" [(ngModel)]="atributo.nombre" formControlName="prod_name"></ion-input>
+    </ion-item>
+
+
+    <ion-button type="submit" color="azul" expand="block"
+      [disabled]="!atributoForm.valid">Guardar</ion-button>
+  </form>
+</ion-card>
+
+</ion-content>
+
+<footer-menu></footer-menu>

@@ -1,0 +1,18 @@
+<ion-header [translucent]="true" class="bartop">
+  <ion-toolbar class="bartop">
+    <ion-buttons slot="start">
+      <ion-icon name="person-circle-sharp" size="large"></ion-icon>
+
+      <ion-label color="light" >Hola, {{ storedUsername }} </ion-label>
+
+
+    </ion-buttons>
+
+    <ion-buttons slot="end" [routerLink]="['/perfil/cuenta/']">
+      <ion-tab-button class="btn-tucuenta" >
+        <ion-label color="light">Tu cuenta</ion-label>
+      </ion-tab-button>
+
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>

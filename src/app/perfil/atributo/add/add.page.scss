@@ -1,0 +1,46 @@
+.tituloxparrafo{
+    display: flex;
+    flex-direction: column;
+}
+.bartop{
+    --background:#00bbfe ;
+  }
+  .btn-tucuenta{
+    --background:#00ccff ;
+  }
+  
+  .topbarelementos{
+    display: flex;
+    align-items: center;
+  }
+  .xd{
+    padding-top: 10px;
+    margin-left: 10px;
+  }
+  .color-blanco{
+    color: white;
+  }
+  .bg-gris{
+    --background: #dedede;
+  }
+  .bold{
+    font-weight: bold;
+  }
+  .ion-color-azul {
+    --ion-color-base: var(--ion-color-azul);
+    --ion-color-base-rgb: var(--ion-color-azul-rgb);
+    --ion-color-contrast: var(--ion-color-azul-contrast);
+    --ion-color-contrast-rgb: var(--ion-color-azul-contrast-rgb);
+    --ion-color-shade: var(--ion-color-azul-shade);
+    --ion-color-tint: var(--ion-color-azul-tint);
+  }
+  ion-button[type="submit"] {
+    --ion-background-color: #3880ff;
+    --ion-text-color: #fff;
+    border: none;
+    border-radius: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+    width: 100%;
+  }

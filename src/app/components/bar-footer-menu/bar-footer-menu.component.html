@@ -1,0 +1,31 @@
+
+<ion-footer >
+  <ion-toolbar >
+    <ion-tabs>
+      <ion-tab-bar slot="bottom">
+        <ion-tab-button layout="icon-top" [ngClass]="{ 'active-button': isFolderRoute() }" [routerLink]="['/folder']">
+          <ion-icon name="storefront"></ion-icon>
+          <ion-label>Tienda</ion-label>
+        </ion-tab-button>
+    
+        <ion-tab-button   layout="icon-top"[ngClass]="{ 'active-button': isCarroRoute() }" [routerLink]="['/folder/carro']">
+          <ion-icon name="cart" mat-raised-button
+          matBadge="8" matBadgePosition="before" matBadgeColor="accent" ></ion-icon>
+          <ion-label>Carro</ion-label>
+        </ion-tab-button>
+    
+        <ion-tab-button  layout="icon-top">
+          <ion-icon name="document"></ion-icon>
+          <ion-label>Historial</ion-label>
+        </ion-tab-button>
+    
+        <ion-tab-button  layout="icon-top" [ngClass]="{ 'active-button': isPerfilRoute() }" [routerLink]="['/perfil']">
+          <ion-icon name="person"></ion-icon>
+          <ion-label>Perfil</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+    
+    </ion-tabs>
+  
+  </ion-toolbar>
+</ion-footer>

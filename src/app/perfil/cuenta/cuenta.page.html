@@ -1,0 +1,96 @@
+
+<ion-header [translucent]="true"class="bartop">
+  <ion-toolbar class="bartop">
+    <ion-buttons slot="start" >
+      <div class="topbarelementos">
+        <div class="xd titulopls"  >
+          <ion-icon [routerLink]="['/perfil']" color="light" name="arrow-back" size="large"></ion-icon>
+        </div>
+        <div >
+          <h1 class="color-blanco ">Mi perfil </h1>
+        </div>
+      </div>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+
+
+<ion-content [fullscreen]="true" *ngIf="mostrarElemento">
+
+  <div class="padding-top-5">
+    <ion-thumbnail style="width: 150px; height: 150px; margin: auto; overflow: hidden; border-radius: 50%;" >
+      <ion-img [src]="cliente.foto"></ion-img>
+    </ion-thumbnail>
+  </div>
+
+
+  <ion-card > 
+
+    
+
+    
+
+  <ion-item class="bg-gris bold">
+    <h6>RUT</h6> 
+
+  </ion-item>
+
+  <ion-item >
+    <h6> {{ cliente.rut }}- {{ cliente.dv }}</h6> 
+
+  </ion-item>
+
+  <ion-item class="bg-gris bold">
+    <h6>Nombre completo</h6> 
+
+  </ion-item>
+  <ion-item>
+    <h6>{{ cliente.nombre }} {{ cliente.appaterno }} {{ cliente.apmaterno }}</h6> 
+
+    <!-- <ion-input type="text" [(ngModel)]="genero.name"placeholder="Ingresar nombre"  formControlName="genero_name"></ion-input> -->
+  </ion-item>
+
+  <ion-item class="bg-gris bold">
+    <h6>Correo electrónico</h6>
+  </ion-item>
+
+  <ion-item >
+    <h6> {{ cliente.email }}</h6> 
+
+  </ion-item>
+
+  <ion-item class="bg-gris bold">
+    <h6>Teléfono</h6>
+  </ion-item>
+
+  <ion-item >
+    <h6>+{{ cliente.telefono }}</h6> 
+
+  </ion-item>
+  <ion-item class="bg-gris bold">
+    <h6>Género</h6>
+  </ion-item>
+
+  <ion-item >
+    <h6>{{ cliente.genero_nombre }}</h6> 
+
+  </ion-item>
+
+
+
+
+
+</ion-card>
+<ion-card>
+  <ion-button type="submit"  color="azul"[routerLink]="['/perfil/cuenta/edit',cliente.rut]" expand="block">Editar mi perfil</ion-button>
+
+</ion-card>
+
+</ion-content>
+
+
+
+
+<footer-menu></footer-menu>

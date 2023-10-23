@@ -1,0 +1,73 @@
+<ion-header [translucent]="true"class="bartop">
+  <ion-toolbar class="bartop">
+    <ion-buttons slot="start" >
+      <div class="topbarelementos">
+        <div class="xd"  >
+
+          <ion-icon [routerLink]="['/folder/carro']" color="light" name="arrow-back" size="large"></ion-icon>
+        </div>
+
+        <h1 class="color-blanco">Sucursales </h1>
+
+      </div>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+
+  <ion-item class="bg-gris bold">
+    <h3>Elegir sucursal de retiro</h3>
+  </ion-item>
+  
+  <ion-list>
+<ion-item>
+  <ion-label>Región:</ion-label>
+  <ion-select [(ngModel)]="regionSeleccionada" (ionChange)="filtrarCiudades()" 
+    class="mi-clase-personalizada"
+    label="Selecciona una Región" 
+    cancelText="Cancelar" 
+    okText="Aceptar">
+    <ion-select-option *ngFor="let region of regiones" [value]="region.id">{{ region.nombre }}</ion-select-option>
+  </ion-select>
+</ion-item>
+
+<ion-item>
+  <ion-label>Ciudad:</ion-label>
+  <ion-select [(ngModel)]="ciudadSeleccionada" (ionChange)="filtrarSucursales()" 
+    class="mi-otra-clase-personalizada"
+    label="Selecciona una Ciudad" 
+    cancelText="Cancelar" 
+    okText="Aceptar">
+    <ion-select-option *ngFor="let ciudad of ciudadesFiltradas" [value]="ciudad.id">{{ ciudad.nombre }}</ion-select-option>
+  </ion-select>
+</ion-item>
+
+  
+    <ion-radio-group [(ngModel)]="sucursalSeleccionada">
+          <ion-item *ngFor="let sucursal of sucursalesFiltradas" class="margintop">
+            <div class="flex width90">
+              <ion-label>{{ sucursal.nombre }}</ion-label>
+              <p>{{ sucursal.direccion }}</p>
+              <p>{{ sucursal.numeracion }}</p>
+            </div>
+            <ion-radio [value]="sucursal"></ion-radio>
+            
+
+          </ion-item>
+  </ion-radio-group>
+  </ion-list>
+
+  
+
+</ion-content>
+
+<ion-footer class="bg-white">
+  <div class="productCart-wrapper">
+
+   
+    <button class="cart-btn" (click)=addSucursal() >Continuar</button>
+
+  </div>
+</ion-footer>

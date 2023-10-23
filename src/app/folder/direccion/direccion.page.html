@@ -1,0 +1,50 @@
+<ion-header [translucent]="true"class="bartop">
+  <ion-toolbar class="bartop">
+    <ion-buttons slot="start" >
+      <div class="topbarelementos">
+        <div class="xd"  >
+
+          <ion-icon [routerLink]="['/folder/carro']"color="light" name="arrow-back" size="large"></ion-icon>
+        </div>
+
+        <h1 class="color-blanco">Mis Direcciones </h1>
+
+      </div>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item class="bg-gris bold">
+    <h3>Elegir dirección</h3>
+  </ion-item>
+
+  
+
+   <ion-radio-group [(ngModel)]="direccionSeleccionada">
+    <ion-item *ngFor="let direccion of direcciones" class="margintop">
+      <div class="flex width90 margintop">
+
+        <ion-label>Nombre de la calle: {{ direccion.calle }}</ion-label>
+
+        <p>Número: #{{ direccion.numero }}</p>
+        <p>{{ direccion.ciudad_nombre }}, {{ direccion.region_nombre }}</p>
+
+      </div>
+      <ion-radio [value]="direccion"></ion-radio>
+      
+
+    </ion-item>
+</ion-radio-group>
+
+</ion-content>
+<ion-footer class="bg-white">
+  <div class="productCart-wrapper">
+
+    <button class="cart-btn" [routerLink]="['/perfil/direcciones/add']" >Nueva dirección</button>
+   
+    <button class="cart-btn" (click)=guardarDireccion() >Continuar</button>
+
+  </div>
+</ion-footer>

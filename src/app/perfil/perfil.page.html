@@ -1,0 +1,204 @@
+<header-menu ></header-menu>
+
+
+
+<ion-content [fullscreen]="true" class="ion-padding">
+
+<ion-grid>
+  <ion-row>
+    <ion-col size="12">
+      <ion-card   >
+        <ion-card-content class="center-content">
+          <ion-grid class="jcspace">
+            <ion-row >
+            
+              <ion-col class="icon-column"  [routerLink]="['/perfil/cuenta/']">
+                <div class="circle-icon">
+                  <fa-icon icon="id-card" style="color: #19aeff;" size="2xl" ></fa-icon>
+
+                </div>
+                Mi datos
+              </ion-col>
+
+              <ion-col class="icon-column">
+                <div class="circle-icon">
+                  <fa-icon icon="boxes-stacked" style="color: #19aeff;" size="2xl" ></fa-icon>
+
+                </div>
+                Mis comprasff
+              </ion-col>
+
+              <ion-col class="icon-column" [routerLink]="['/perfil/direcciones/']">
+                <div class="circle-icon">
+                  <ion-icon size="large" name="map"></ion-icon>
+                </div>
+                Mis direcciones
+              </ion-col>
+
+              <ion-col class="icon-column"[routerLink]="['/perfil/tarjetas/']">
+                <div class="circle-icon">
+                  <ion-icon size="large" name="card"></ion-icon>
+                </div>
+                Mis tarjetas
+              </ion-col>
+              <ion-col class="icon-column" (click)="logout()">
+                <div class="circle-icon">
+                  <fa-icon icon="right-from-bracket" style="color: #19aeff;" size="2xl" ></fa-icon>
+
+                </div>
+                Salir
+              </ion-col>
+             
+            </ion-row>
+          </ion-grid>
+          
+  
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+<ion-grid>
+  <ion-row>
+    <ion-col size="12">
+      <ion-card   >
+        <ion-card-content class="center-content">
+          <ion-grid class="jcspace">
+            <ion-row >
+            
+              <ion-col class="icon-column">
+                <div class="circle-icon">
+                  <ion-icon size="large" name="people"></ion-icon>
+                </div>
+                Usuariosff
+              </ion-col>
+              <ion-col class="icon-column" [routerLink]="['/perfil/clientes/']">
+                <div class="circle-icon">
+                  <ion-icon size="large" name="people"></ion-icon>
+                </div>
+                Clientes
+              </ion-col>
+              <ion-col class="icon-column">
+                <div class="circle-icon">
+                  <ion-icon size="large" name="people"></ion-icon>
+                </div>
+                Personasff
+              </ion-col>
+              <ion-col class="icon-column">
+                <div class="circle-icon">
+                  <fa-icon icon="people-group" style="color: #19aeff;" size="2xl" ></fa-icon>
+                </div>
+                Empleadosff
+              </ion-col>
+              <ion-col class="icon-column">
+                <div class="circle-icon">
+                  <fa-icon icon="building" style="color: #19aeff;" size="2xl" ></fa-icon>
+
+                </div>
+                Proveedoresff
+              </ion-col>
+              <ion-col class="icon-column" [routerLink]="['/perfil/cargo/']">
+                <div class="circle-icon">
+                  <ion-icon size="large" name="hammer"></ion-icon>
+                </div>
+                Cargos
+              </ion-col>
+              <ion-col class="icon-column"[routerLink]="['/perfil/genero/']">
+                <div class="circle-icon">
+                  <ion-icon size="large" name="male-female"></ion-icon>
+                </div>
+                Géneros
+              </ion-col>
+              <ion-col class="icon-column"  [routerLink]="['/perfil/sucursal/']">
+                <div class="circle-icon">
+                  <fa-icon icon="map-pin" style="color: #19aeff;" size="2xl" ></fa-icon>
+
+                </div>
+                Sucursales
+              </ion-col>
+              <ion-col class="icon-column" [routerLink]="['/perfil/bodega/']"> 
+                <div class="circle-icon">
+                  <fa-icon icon="warehouse" style="color: #19aeff;" size="2xl" ></fa-icon>
+                </div>
+                Bodegas
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+          
+  
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+<ion-grid>
+  <ion-row>
+    <ion-col size="12">
+      <ion-card   >
+        <ion-card-content class="center-content">
+          <ion-grid class="jcspace">
+            <ion-row >
+            
+            
+              <ion-col class="icon-column"[routerLink]="['/perfil/producto/']"> 
+                <div class="circle-icon">
+                  <ion-icon size="large" name="cube"></ion-icon>
+                </div>
+                Productos
+              </ion-col>
+              <ion-col class="icon-column"[routerLink]="['/perfil/categoria/']">
+                <div class="circle-icon">
+                  <ion-icon size="large" name="filter"></ion-icon>
+                </div>
+                Categorias
+              </ion-col>
+              <ion-col class="icon-column"[routerLink]="['/perfil/marca/']">
+                <div class="circle-icon">
+                  <ion-icon size="large" name="menu"></ion-icon>
+                </div>
+                Marcas
+              </ion-col>
+              <ion-col class="icon-column" [routerLink]="['/perfil/atributo/']">
+                <div class="circle-icon">
+                  <ion-icon size="large" name="apps"></ion-icon>
+                </div>
+                Atributos
+              </ion-col>
+              <ion-col class="icon-column">
+                <div class="circle-icon">
+                  <ion-icon size="large" name="receipt"></ion-icon>
+                </div>
+                Boletasff
+              </ion-col>
+              <ion-col class="icon-column">
+                <div class="circle-icon">
+                  <fa-icon icon="truck-arrow-right" style="color: #19aeff;" size="2xl" ></fa-icon>
+                </div>
+                Pedidosff
+              </ion-col>  
+
+
+
+              <ion-col class="icon-column">
+                <div class="circle-icon">
+                  <ion-icon size="large" name="reader"></ion-icon>
+                </div>
+                Facturasff
+              </ion-col>
+
+
+            </ion-row>
+          </ion-grid>
+          
+  
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+</ion-content>
+
+<footer-menu></footer-menu>

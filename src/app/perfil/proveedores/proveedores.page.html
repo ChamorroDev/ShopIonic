@@ -1,0 +1,38 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Proveedores</ion-title>
+    <ion-buttons slot="end">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item *ngFor="let pro of proveedor">
+      <ion-avatar slot="start">
+        <ion-img [src]="pro.imagen"></ion-img>
+      </ion-avatar>
+      <ion-label>
+        <h2>{{ pro.nombre }}</h2>
+        <p>Empresa: {{ pro.empresa }}</p>
+        <p>Articulo: {{ pro.articulo }}</p>
+        <p>Teléfono: {{ pro.telefono }}</p>
+      </ion-label>
+
+      <ion-button expand="full" [routerLink]="'/perfil/proveedores/edit'"><ion-icon name="pencil-outline"></ion-icon></ion-button>
+
+      <ion-button id="present-alert"><ion-icon name="close-circle-outline"></ion-icon></ion-button>
+      <ion-alert trigger="present-alert"header="Alert"subHeader="Important message"message="This is an alert!"[buttons]="alertButtons"></ion-alert>
+
+    </ion-item>
+  </ion-list>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="add" [routerLink]="['/perfil/proveedores/add']"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

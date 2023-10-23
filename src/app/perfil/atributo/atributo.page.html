@@ -1,0 +1,30 @@
+<header-menu>
+  
+</header-menu>
+<ion-toolbar class="buscador">
+  <ion-searchbar placeholder="Buscador" animated (ionChange)="searchAtributos($event)"></ion-searchbar>
+</ion-toolbar>
+<ion-content [fullscreen]="true">
+ 
+  <ion-card  *ngFor="let atri of searchAtributo" [routerLink]="['/perfil/atributo/edit',atri.id]">
+
+    <ion-item class="bg-gris bold">
+      <h6>{{ atri.nombre }}</h6>
+    </ion-item>    
+
+    <ion-item>
+          <h6>Modificado: {{ atri.edited|date:"d/MM/Y H:mm:s" }}</h6> 
+    </ion-item>
+
+    <ion-item>
+          <h6>Creado: {{ atri.created|date:"d/MM/Y H:mm:s" }}</h6> 
+    </ion-item>
+  </ion-card>
+
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button color="azul">
+    <ion-icon name="add" [routerLink]="['/perfil/atributo/add']"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+</ion-content>
+<footer-menu></footer-menu>

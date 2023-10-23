@@ -1,0 +1,151 @@
+
+body {
+    background:#00ff00 !important;
+  }
+
+  ion-content {
+    height: 300px;
+    margin-top: 20px;
+  }
+
+.img{
+  border-radius: 5%;
+}
+
+
+.atributos-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.atributos-table td {
+  padding: 8px;
+  border: 1px solid #ccc;
+}
+
+.tituloxparrafo{
+  display: flex;
+  flex-direction: column;
+}
+.bartop{
+  --background:#00bbfe ;
+}
+.btn-tucuenta{
+  --background:#00ccff ;
+}
+
+.topbarelementos{
+  display: flex;
+  align-items: center;
+}
+.xd{
+  padding-top: 10px;
+  margin-left: 10px;
+}
+.color-blanco{
+  color: white;
+}
+
+.atributos-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.atributos-table td {
+  padding: 8px;
+  border: 1px solid #ccc;
+}
+
+.attribute-name {
+  font-weight: bold;
+}
+
+.description-container {
+  margin-top: 20px;
+}
+
+.description-container h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+
+  
+}
+
+.description-container p {
+  font-size: 16px;
+
+
+}
+.titulo{
+  font-size: 20px;
+  font-weight: bold;
+
+}
+
+.quantity{
+  margin-top: 0;
+
+}
+.quantity-buttons-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+.valor-enfocado {
+  font-weight: bold;
+
+  color: rgb(0, 0, 0); /* Color del texto en blanco para mayor contraste */
+  font-size: 35px; /* Cambiar el tamaño de fuente */
+  /* Agrega otros estilos según tus necesidades */
+}
+
+.center-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 25px;
+}
+
+
+swiper-container {
+  --swiper-pagination-bullet-inactive-color: var(--ion-color-step-200, #02395a);
+  --swiper-pagination-color: var(--ion-color-primary, #00bbfe);
+  --swiper-pagination-progressbar-bg-color: rgba(var(--ion-text-color-rgb, 0, 0, 0), 0.25);
+  --swiper-scrollbar-bg-color: rgba(var(--ion-text-color-rgb, 0, 0, 0), 0.1);
+  --swiper-scrollbar-drag-bg-color: rgba(var(--ion-text-color-rgb, 0, 0, 0), 0.5);
+}
+
+  swiper-slide {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    font-size: 18px;
+    text-align: center;
+    box-sizing: border-box;
+  }
+  
+  swiper-slide div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px; /* ajusta esta altura según tus requisitos */
+  }
+  
+  swiper-slide div img {
+    width: auto;
+    height: 100%; /* ajusta la altura al 100% */
+    max-width: 100%;
+    object-fit: cover; /* para asegurarte de que las imágenes se ajusten a la altura definida */
+  }
+  
+
+
+

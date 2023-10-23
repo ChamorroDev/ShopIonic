@@ -1,0 +1,77 @@
+.tituloxparrafo{
+    display: flex;
+    flex-direction: column;
+}
+.bartop{
+    --background:#00bbfe ;
+  }
+  .btn-tucuenta{
+    --background:#00ccff ;
+  }
+  
+  .topbarelementos{
+    display: flex;
+    align-items: center;
+  }
+  .xd{
+    padding-top: 10px;
+    margin-left: 10px;
+  }
+  .color-blanco{
+    color: white;
+  }
+
+
+
+  .productCart-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+  }
+  .bg-gris{
+    --background: #dedede;
+  }
+  .bold{
+    font-weight: bold;
+  }
+  
+
+  .cart-btn {
+    width: 50%;
+    align-self: center;
+    border: none;
+    border-radius: 0.25rem;
+    margin: 0.75rem 0;
+    background-color: #00a0f0;
+    color: white;
+    cursor: pointer;
+    padding: 1rem;
+    font-weight: bold;
+
+}
+
+.bg-white{
+  background-color: white;
+}
+
+
+.mi-clase-personalizada ion-select {
+  background-color: #f0f0f0;
+  color: #333;
+  border: 2px solid #ccc;
+}
+
+.mi-otra-clase-personalizada ion-select {
+  background-color: #e0e0e0;
+  color: #555;
+  border: 2px solid #999;
+}
+
+.margintop{
+  margin-top: 5%;
+}
+
+.width90{
+  width: 90%;
+}

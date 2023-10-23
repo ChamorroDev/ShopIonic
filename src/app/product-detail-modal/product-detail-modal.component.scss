@@ -1,0 +1,29 @@
+
+  body {
+    background:#00ff00 !important;
+  }
+
+  ion-content {
+    height: 300px;
+    margin-top: 20px;
+  }
+
+.img{
+  border-radius: 5%;
+}
+.custom-modal {
+  max-width: 80%; /* Establece el ancho máximo del modal al 80% del ancho de la pantalla */
+  width: auto; /* Permite que el ancho se ajuste automáticamente según el contenido */
+  max-height: 80vh; /* Establece la altura máxima del modal al 80% de la altura de la ventana */
+  height: auto; /* Permite que la altura se ajuste automáticamente según el contenido */
+}
+
+.atributos-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.atributos-table td {
+  padding: 8px;
+  border: 1px solid #ccc;
+}

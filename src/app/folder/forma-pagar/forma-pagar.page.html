@@ -1,0 +1,45 @@
+<ion-header [translucent]="true"class="bartop">
+  <ion-toolbar class="bartop">
+    <ion-buttons slot="start" >
+      <div class="topbarelementos">
+        <div class="xd"  >
+
+          <ion-icon [routerLink]="['/folder/carro']" color="light" name="arrow-back" size="large"></ion-icon>
+        </div>
+
+        <h1 class="color-blanco">Métodos de pago </h1>
+
+      </div>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <ion-list>
+    <ion-radio-group [(ngModel)]="tarjetaSeleccionada">
+      <ion-list-header>
+        <h3>Tus tarjetas para pagar</h3>
+      </ion-list-header>
+  
+      <ion-item *ngFor="let tar of tarjetas">
+        <ion-label>{{tar.nombre}}</ion-label>
+        <ion-radio slot="start" [value]="tar"></ion-radio>
+        <ion-label>{{ mostrarUltimosCuatroDigitos(tar.numero) }}</ion-label>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+  
+
+
+</ion-content>
+
+<ion-footer class="bg-white">
+  <div class="productCart-wrapper">
+   
+    <ion-button color="azul" expand="block" (click)="hacerPago()" >Ir a Pagar </ion-button>
+
+  </div>
+</ion-footer>

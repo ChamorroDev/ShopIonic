@@ -1,0 +1,43 @@
+<header-menu>
+  
+</header-menu>
+
+<ion-toolbar class="buscador">
+  <ion-searchbar placeholder="Buscador" animated (ionChange)="searchSucursales($event)"></ion-searchbar>
+
+</ion-toolbar>
+
+<ion-content [fullscreen]="true">
+  
+    
+  <ion-card class="margintop5" *ngFor="let suc of searchSucursal" [routerLink]="['/perfil/sucursal/detail',suc.id]">
+   
+    <ion-item class="bg-gris bold">
+      <h3 >Nombre</h3>
+    </ion-item>  
+    <ion-item >
+      <h6>{{ suc.nombre }}</h6>
+    </ion-item>  
+
+    <ion-item class="bg-gris bold">
+      <h3>Dirección</h3>
+    </ion-item>  
+    <ion-item >
+      <h6>{{ suc.direccion }}, #{{ suc.numeracion }},{{ suc.ciudad_nombre }} </h6>
+    </ion-item>  
+
+  
+  </ion-card>
+
+
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="azul">
+      <ion-icon name="add"size="large" [routerLink]="['/perfil/sucursal/add']"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>
+
+
+<footer-menu></footer-menu>

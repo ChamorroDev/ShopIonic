@@ -1,0 +1,33 @@
+.circle-icon {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #eb445a;
+  }
+
+  .circle-icon ion-icon {
+    color:#ffffff; 
+    font-size: 120px;
+  }
+
+  .icon-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .danger{
+    background-color: #eb445a;
+
+  }
+  .white{
+    color:white;
+    font-size: 40px;
+
+  }
+
+  .bg-grisclaro{
+    --background: #b1b1b1;
+
+  }

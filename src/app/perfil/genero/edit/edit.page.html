@@ -1,0 +1,53 @@
+<ion-header [translucent]="true"class="bartop">
+  <ion-toolbar class="bartop">
+    <ion-buttons slot="start" >
+      <div class="topbarelementos">
+        <div class="xd"  >
+
+          <ion-icon [routerLink]="['/perfil/genero']" color="light" name="arrow-back" size="large"></ion-icon>
+        </div>
+
+        <h1 class="color-blanco">Editar género </h1>
+
+      </div>
+    </ion-buttons>
+
+
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card>
+
+  <form [formGroup]="generoForm"  (ngSubmit)="onFormSubmit(generoForm.value)">
+    <ion-item class="bg-gris bold">
+      <h3>Nombre de género</h3>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" [(ngModel)]="genero.name"placeholder="Ingresar nombre"  formControlName="genero_name"></ion-input>
+    </ion-item>
+      <ion-item class="bg-gris bold">
+      <h3>Estado del género</h3>
+    </ion-item>
+    <ion-item>
+      <ion-select formControlName="genero_activo"  [(ngModel)]="genero.actived"
+      label="Selecciona un estado" 
+      cancelText="Cancelar" 
+      okText="Aceptar">
+        <ion-select-option value=1>Habilitar</ion-select-option>
+        <ion-select-option value=0>Deshabilitar</ion-select-option>
+      </ion-select>
+    </ion-item>
+      <ion-item>
+      <ion-label> El género  esta {{ genero.actived ? 'habilitado' : 'deshabilitado' }}</ion-label>
+      </ion-item>
+
+    <ion-button type="submit"  color="azul" expand="block" [disabled]="!generoForm.valid">Guardar editado</ion-button>
+  </form>
+</ion-card>
+
+</ion-content>
+
+<footer-menu></footer-menu>
+

@@ -1,0 +1,33 @@
+<header-menu>
+  
+</header-menu>
+<ion-toolbar class="buscador">
+  <ion-searchbar placeholder="Buscador" animated (ionChange)="searchMarcas($event)"></ion-searchbar>
+</ion-toolbar>
+<ion-content >
+ 
+
+  <ion-card *ngFor="let mar of searchMarca" [routerLink]="['/perfil/marca/edit',mar.id]">
+    <ion-item class="bg-gris bold">
+      <h6>{{ mar.nombre }}</h6>
+    </ion-item>    
+
+    <ion-item>
+          <h6>Modificado: {{ mar.edited|date:"d/MM/Y H:mm:s" }}</h6> 
+    </ion-item>
+
+    <ion-item>
+          <h6>Creado: {{ mar.created|date:"d/MM/Y H:mm:s" }}</h6> 
+    </ion-item>
+
+  </ion-card>
+
+
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button color="azul">
+    <ion-icon name="add"size="large" [routerLink]="['/perfil/marca/add']"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+</ion-content>
+<footer-menu></footer-menu>

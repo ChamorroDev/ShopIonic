@@ -1,0 +1,73 @@
+<ion-header [translucent]="true"class="bartop">
+  <ion-toolbar class="bartop">
+    <ion-buttons slot="start" >
+      <div class="topbarelementos">
+        <div class="xd"  >
+
+          <ion-icon [routerLink]="['/perfil/bodega']" color="light" color="light" name="arrow-back" size="large"></ion-icon>
+        </div>
+
+        <h1 class="color-blanco">Agregar nueva bodega </h1>
+
+      </div>
+    </ion-buttons>
+
+
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card>
+
+  <form [formGroup]="bodegaForm" (ngSubmit)="onFormSubmit(bodegaForm.value)">
+    <ion-item class="bg-gris bold">
+      <h3>Nombre de la bodega</h3>
+    </ion-item>
+    <ion-item >
+      <ion-input type="text" [(ngModel)]="bodega.nombre" placeholder="Ingresa nombre" formControlName="bodega_name"></ion-input>
+    </ion-item>
+
+    <ion-item class="bg-gris bold">
+      <h3>Dirección</h3>
+    </ion-item>
+    <ion-item >
+      <ion-input type="text" [(ngModel)]="bodega.direccion" placeholder="Ingresa direccion" formControlName="bodega_direccion"></ion-input>
+    </ion-item>
+
+
+    <ion-item class="bg-gris bold">
+      <h3>Número</h3>
+    </ion-item>
+    <ion-item >
+      <ion-input type="text" [(ngModel)]="bodega.numeracion" placeholder="Ingresa numeracion" formControlName="bodega_enumeracion"></ion-input>
+    </ion-item>
+
+    <ion-item class="bg-gris bold">
+      <h3>Región</h3>
+    </ion-item>
+
+    <ion-item>
+      <ion-select formControlName="bodega_region" placeholder="Seleccionar Región" (ionChange)="filtrarCiudadesPorRegion($event)"cancelText="Cancelar" okText="Aceptar" label="Regiones">
+        <ion-select-option *ngFor="let region of regiones" [value]="region.id">{{ region.nombre }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    
+    <ion-item class="bg-gris bold">
+      <h3>Ciudad</h3>
+    </ion-item>
+    <ion-item>
+      <ion-select formControlName="bodega_ciudad" placeholder="Seleccionar Ciudad"cancelText="Cancelar" okText="Aceptar" label="Ciudades">
+        <ion-select-option *ngFor="let ciudad of ciudadesFiltradas" [value]="ciudad.id">{{ ciudad.nombre }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+
+    <ion-button type="submit" color="azul" expand="block"
+      [disabled]="!bodegaForm.valid">Guardar</ion-button>
+  </form>
+</ion-card>
+
+</ion-content>
+
+<footer-menu></footer-menu>
