@@ -7,28 +7,45 @@
 </ion-toolbar>
 
 
-<ion-content [fullscreen]="true" >
+<ion-content >
 
-  <ion-card  c *ngFor="let cliente of searchCliente" [routerLink]="['/perfil/clientes/detail',cliente.rut]">
+  <ion-card  class="border" *ngFor="let cliente of searchCliente" [routerLink]="['/perfil/clientes/detail',cliente.rut]">
 
     
-    <ion-label>
       
-        <ion-item class="bg-gris bold">
+      <ion-item class="bg-gris bold">
+        <h6>NOMBRE COMPLETO
+          </h6>
+      </ion-item> 
+        <ion-item >
           <h6>{{ cliente.nombre }}
             {{ cliente.appaterno }}
             {{ cliente.apmaterno }}</h6>
         </ion-item>    
+
+        <ion-item class="bg-gris bold">
+          <h6>NOMBRE DE USUARIO
+            </h6>
+        </ion-item> 
+        <ion-item >
+          <h6>{{ cliente.usuario }}
+            </h6>
+        </ion-item> 
     
+
+        <ion-item class="bg-gris bold">
+          <h6>RUT
+            </h6>
+        </ion-item> 
         <ion-item>
-              <h6>RUT: {{ cliente.rut }}-{{ cliente.dv }}</h6> 
+              <h6> {{ cliente.rut }}-{{ cliente.dv }}</h6> 
         </ion-item>
     
-        <ion-item>
-              <h6>Correo: {{ cliente.email }}</h6> 
-        </ion-item>
+
+
+
+        
   
-    </ion-label>
 
   </ion-card>
 

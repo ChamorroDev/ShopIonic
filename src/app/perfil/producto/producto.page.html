@@ -9,8 +9,7 @@
 
 
 <ion-content [fullscreen]="true" >
-  <input type="file" (change)="onFileChange($event)" accept="image/*">
-  <button (click)="uploadImage()">Subir Imagen</button>
+
   
     <ion-card  *ngFor="let product of searchProducto " [routerLink]="['/perfil/producto/detail',product.id]" class=" bg-white">
         <div class="miDiv">

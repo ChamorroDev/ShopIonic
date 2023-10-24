@@ -3,11 +3,11 @@ import { ActivatedRoute } from '@angular/router';
 import { NavController,ModalController  } from '@ionic/angular';
 import { ClProducto,ResClProducto,ClMarca,ClTipoProductoAtributo,ClAtributo} from '../model/ClProducto';
 import { ClCategoria} from '../model/ClCategoria';
-
 import { ProductoServiceService } from '../perfil/producto/producto-servicio.service';
-
 import { LoadingController } from '@ionic/angular';
 import {  Router } from '@angular/router';
+import { CarroServicioService } from './carro/carro-servicio.service';
+import { globalData } from 'src/app/constants/user';
 
 
 @Component({
@@ -21,6 +21,7 @@ export class FolderPage implements OnInit { public alertButtons = ['OK']
   constructor(
     public restApi: ProductoServiceService,
     public loadingController: LoadingController,
+    public restApiCarro: CarroServicioService,
     public router: Router,
     private navCtrl: NavController, 
     private modalController: ModalController) {}
@@ -60,7 +61,24 @@ export class FolderPage implements OnInit { public alertButtons = ['OK']
       })
     }
   }
+  productoCarro: {cliente:string ,producto: number, cantidad: number} = {cliente:'', producto: 0, cantidad:0};
 
+  async addcart(id:number) {
+    this.productoCarro.cliente = globalData.RUT_CLIENTE;
+    this.productoCarro.producto =id;
+    this.productoCarro.cantidad =1
+
+
+    await this.restApiCarro.addProducto(this.productoCarro)
+      .subscribe({
+        next: (res) => {
+          this.router.navigate(['/folder/carro']);
+        }
+        , complete: () => { }
+        , error: (err) => { console.log(err); }
+      });
+    
+  }
   async getProductos() {
     const loading = await this.loadingController.create({
       message: 'Cargando...'

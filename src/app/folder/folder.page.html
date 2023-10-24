@@ -7,7 +7,7 @@
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-<div class="divbuscador">
+<div class="divbuscador margin-top10">
   <ion-toolbar class="buscador">
     <ion-searchbar  placeholder="Buscador" animated (ionChange)="searchProductos($event)" ></ion-searchbar>
   </ion-toolbar>
@@ -15,7 +15,7 @@
 
 
 
-<ion-content>
+<ion-content >
   <ion-row  *ngIf="mostrarElemento">
     <ion-col *ngFor="let product of productos">
       <div class="custom-product-card" >
@@ -32,7 +32,7 @@
               <p class="product-description">{{ product.descripcion }}</p>
             </ion-card-content>
           </div>
-          <ion-button type="submit"  vertical="bottom"    color="azul" expand="block">Agregar al carro</ion-button>
+          <ion-button type="submit"  vertical="bottom"   (click)="addcart(product.id)" color="azul" expand="block">Agregar al carro</ion-button>
       </div>
     </ion-col>
   </ion-row>

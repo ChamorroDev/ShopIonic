@@ -45,6 +45,7 @@ export class ClUsuario {
     nacimiento :	Date;
     genero    :  number;
     foto : string;
+    usuario:string;
 
 
       constructor(obj: any){
@@ -61,6 +62,8 @@ export class ClUsuario {
         this.nacimiento = obj && obj.nacimiento || null
         this.genero = obj && obj.genero || null
         this.foto = obj && obj.foto || null
+        this.usuario = obj && obj.usuario || null
+
 
 
       }

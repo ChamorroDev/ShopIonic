@@ -58,37 +58,7 @@ constructor(public restApi: ProductoServiceService
       })
   }
 
-  imageData: string | ArrayBuffer = ''; 
+  
 
-  onFileChange(event: any) {
-    const file = event.target.files[0];
-    if (file) {
-      this.getBase64(file).then(base64 => {
-        this.imageData = base64;
-      });
-    }
-  }
-
-  uploadImage() {
-    if (this.imageData) {
-      const requestData = { image: this.imageData };
-
-      this.http.post('http://127.0.0.1:8000/api/backend/foto/', requestData)
-        .subscribe((response) => {
-          console.log('Imagen subida con éxito', response);
-        }, (error) => {
-          console.error('Error al subir la imagen', error);
-        });
-    }
-  }
-
-  getBase64(file: File): Promise<string | ArrayBuffer> {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = () => resolve(reader.result!);
-      reader.onerror = error => reject(error);
-    });
-  }
   
 }

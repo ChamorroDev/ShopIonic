@@ -89,6 +89,29 @@ export class EditPage implements OnInit {
   }
   generoSelect: any = '';
 
+    
+
+    getBase64FromImageUrl(url: string) {
+        return new Promise<string | ArrayBuffer>((resolve, reject) => {
+            let img = new Image();
+            img.setAttribute('crossOrigin', 'anonymous');
+            img.onload = () => {
+                let canvas = document.createElement('canvas');
+                canvas.width = img.width;
+                canvas.height = img.height;
+                let ctx = canvas.getContext('2d');
+                if (ctx) {
+                    ctx.drawImage(img, 0, 0);
+                    let dataURL = canvas.toDataURL('image/png');
+                    resolve(dataURL);
+                } else {
+                    reject('Error getting base64 from image url');
+                }
+            };
+            img.src = url;
+        });
+    }
+
   async getCliente() {
     const loading = await this.loadingController.create({
       message: 'Cargando...'
@@ -99,6 +122,11 @@ export class EditPage implements OnInit {
         next: (res) => { 
           this.cliente = res.registro;
           this.generoSelect = this.generos.find(genero => genero.id === this.cliente.genero);
+          this.getBase64FromImageUrl(this.cliente.foto)
+                    .then(base64data => {
+                        this.cliente.foto = base64data.toString();
+                        this.imageData= base64data.toString();
+                    });
           
           this.clienteForm.setValue({
             cliente_nombres:this.cliente.nombre,
@@ -121,7 +149,10 @@ export class EditPage implements OnInit {
   }
 
   async onFormSubmit(form: NgForm){
+
+
     this.cliente.foto = this.imageData; 
+    
     await this.restApi.addUsuario(this.cliente)
     .subscribe({
       next:(res)=>{
