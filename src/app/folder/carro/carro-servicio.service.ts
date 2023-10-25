@@ -8,13 +8,7 @@ const apiUrl = "http://127.0.0.1:8000/api/backend/carrocliente";
 const apiUrlAdd = "http://127.0.0.1:8000/api/backend/carroclientepost/";
 const apiUrlAddSucursal = "http://127.0.0.1:8000/api/backend/carritosucursal/";
 const apiUrlerrorPago = "http://127.0.0.1:8000/api/backend/errorpago/";
-
-
-
 const apiRetirador = "http://127.0.0.1:8000/api/backend/retirador/";
-
-
-
 const apiUrlWebPayToken = "http://127.0.0.1:8000/api/backend/crearwebpay/";
 
 

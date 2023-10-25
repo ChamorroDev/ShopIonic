@@ -137,6 +137,16 @@
     display: flex;
     justify-content: center;
     width: 100%;
+    flex-direction:column ;
+  }
+
+  .button-radios{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction:row ;
+    align-items:center;
+    width: 100%;
+
   }
 
 
@@ -154,6 +164,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    width: 100%;
+
     max-width: 70%; /* Ajusta el ancho máximo según tus necesidades */
 
     /* Ajusta el espaciado y los márgenes según tus necesidades */
@@ -164,6 +176,9 @@
     width: 100%;
     height: 100%;
     margin: 10px;
+
+
+  max-width: 100px;
 
   }
   
@@ -179,19 +194,20 @@
     align-items: flex-start;
     width: 100%;
     margin-bottom: 15px;
+    
 
   }
   .texto-largo {
     white-space: nowrap;         /* Evita que el texto se divida en múltiples líneas */
     overflow: hidden;            /* Oculta el exceso de texto */
     text-overflow: ellipsis;     /* Agrega "..." al final del texto si se corta */
-    width: 80%                /* Establece un ancho máximo para el contenedor */
+    width: 90%                /* Establece un ancho máximo para el contenedor */
 }
 .texto-largo-des {
-  white-space: nowrap;         /* Evita que el texto se divida en múltiples líneas */
-  overflow: hidden;            /* Oculta el exceso de texto */
-  text-overflow: ellipsis;     /* Agrega "..." al final del texto si se corta */
-  width: 70%;                /* Establece un ancho máximo para el contenedor */
+  white-space: nowrap;         
+  overflow: hidden;            
+  text-overflow: ellipsis;    
+  width: 80%;               
 }
 
 .bold{
@@ -203,16 +219,6 @@
 
 }
 
-// .cart-btn-der {
-//   border-bottom-right-radius: 20% 20%;
-//   border-top-right-radius: 20% 20%;
-//   background-color: #00a0f0;
-//   color: white;
-//   cursor: pointer;
-//   padding: 0.2rem;
-
-//     text-align: center;
-// }
 
 .cart-btn-der {
   border-bottom-right-radius: 20% 20%;
@@ -258,7 +264,14 @@
 }
 
 .precio-div{
+  display: flex;
+  flex-direction: column;
+  align-items:flex-end;
+  justify-content:space-between;
   width: 30%;
+  margin-right:4%;
+  height: 130px;
+
 }
 
 /* Estilos para la lista de opciones */
@@ -302,8 +315,7 @@
   margin-bottom:3%;
 }
 
-.productofoto{
-}
+
 
 .productotexto{
   margin-left:2%;
@@ -324,4 +336,55 @@
 
 ion-modal {
   --height: auto;
+}
+
+.producto-lista{
+  display: flex;
+  width: 100%;
+}
+
+.producto-lista {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+
+
+
+.botones-cantidad{
+  display: flex;
+  flex-direction: row ;
+  justify-content: space-evenly;
+  align-items:center;
+  width: 100%;
+
+}
+.bots{
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+
+.input-group{
+	width: unset;
+	flex-wrap: nowrap;
+}
+
+
+
+
+.selector-cantidad{
+  display: flex;
+  margin-right: 25px;
+  align-items: center;
+
+}
+
+
+.carrito-item-cantidad{
+  margin-left: 20px;
+  margin-right: 20px;
+
+
 }

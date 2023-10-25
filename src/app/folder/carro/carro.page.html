@@ -16,22 +16,34 @@
   <ion-item class="bg-gris bold">
     <h3>Tipo de documento actual: {{ tipoDocumento}}</h3>
   </ion-item>
+
   <ion-item>
+    <ion-list class="metodo-entrega-list bg-white">
+      <ion-radio-group [(ngModel)]="tipoDocumento">
+          <div class="flex ">
+            <div class="button-radios" >
 
-    
+              <ion-radio color="primary"  slot="start" [value]="'Boleta'" (click)="cambiarDocumento('Boleta')">
+              </ion-radio>
+              <h4 class="margin-left5">Boleta</h4>
+            </div>
+            <div class="button-radios" >
 
-    <div class="flex margin-left5  productCart-wrapper">
-      <button class="cart-btn bold margin-left5"  (click)="cambiarDocumento('Boleta')">Cambiar a Boleta</button>
-      <button class="cart-btn bold margin-left5" (click)="cambiarDocumento('Factura')"  id="open-modal">Cambiar a Factura</button>
-    </div>
-    
-<ion-modal #modal trigger="open-modal" >
+              <ion-radio color="primary" slot="start"  [value]="'Factura'" (click)="setOpen(true)" (click)="cambiarDocumento('Factura')">
+              </ion-radio>
+              <h4 class="margin-left5">Factura</h4>
+            </div>
+        </div>    
+      </ion-radio-group>
+    </ion-list>
+
+<ion-modal [isOpen]="isModalOpen" >
   <ng-template>
     <ion-header>
       <ion-toolbar>
         <ion-title class="bold">Datos Factura</ion-title>
         <ion-buttons slot="end">
-          <ion-button (click)="modal.dismiss()">Cerrar</ion-button>
+          <ion-button (click)="setOpen(false)">Cerrar</ion-button>
         </ion-buttons>
       </ion-toolbar>
     </ion-header>
@@ -62,7 +74,7 @@
       </ion-item>
       
       
-      <ion-button (click)="modal.dismiss()">Guardar</ion-button>
+      <ion-button (click)="setOpen(false)">Guardar</ion-button>
 
   </ng-template>
 </ion-modal>
@@ -74,23 +86,30 @@
   <ion-item>
     <ion-list class="metodo-entrega-list bg-white">
       <ion-radio-group [(ngModel)]="metodoEntrega">
-          <div class="flex margin-left5">
+          <div class="flex ">
+            <div class="button-radios" >
 
-            <ion-radio color="primary" class="margin-left5" slot="start" [value]="'Direccion'">
+            <ion-radio color="primary" slot="start" [value]="'Direccion'">
             </ion-radio>
             <h4 class="margin-left5">Enviar a Dirección</h4>
-          <ion-radio color="primary" class="margin-left5"slot="start"  [value]="'Sucursal'">
+        </div>
+
+            <div class="button-radios" >
+
+          <ion-radio color="primary"slot="start"  [value]="'Sucursal'">
           </ion-radio>
           <h4 class="margin-left5">Retirar en Sucursal</h4>
+        </div>
+
         </div>
       </ion-radio-group>
     </ion-list>
   </ion-item>
   <ion-item class="bg-gris bold">
-    <h3>Articulos en el carrito</h3>
+    <h3>Artículos en el carrito</h3>
   </ion-item>
 
-  <ion-item class="producto" *ngFor="let item of productos;let i =index " >
+  <div class="producto" *ngFor="let item of productos;let i =index " >
     <div class="productos-items">
       <div class="producto-foto">
         <ion-img src="{{fotos[i]}}"></ion-img>
@@ -105,34 +124,34 @@
 
 
         </p>
-        <div class="input-group number-spinner">
-          <button (click)=disminuirCantidad(item) class="cart-btn-izq btn btn-default"><ion-icon name="remove-outline" size="large"></ion-icon></button>
-          <ion-label type="number" min="0" class="form-control text-center align-middle ion-label1">
-            {{ item.cantidad }}
+        <div class="carrito-item-detalles">
+          <div class="selector-cantidad">
+            <button (click)=disminuirCantidad(item) class="cart-btn-izq  "><ion-icon name="remove-outline" size="large"></ion-icon></button>
+            <ion-label type="number" min="0" class="carrito-item-cantidad" >
+              {{ item.cantidad }}
+  
+            </ion-label>
+            <button (click)=aumentarCantidad(item) class="cart-btn-der sumar-cantidad"><ion-icon name="add-outline" size="large"></ion-icon></button>
+          </div>
 
-          </ion-label>
-          <button (click)=aumentarCantidad(item) class="cart-btn-der btn btn-default"><ion-icon name="add-outline" size="large"></ion-icon></button>
-          <button (click)=eliminarProducto(item.id) class="trash"><ion-icon name="trash-outline" size="large"></ion-icon></button>
-
-      </div>
+        </div>
+       
       
       </div>
     </div>
     <div class="precio-div">
+
         <h6 style="color: rgb(255, 0, 0);font-weight: bold;text-align: right;">{{ formatPrice(item.precio) }}</h6>
+    
+
+        <button (click)=eliminarProducto(item.id) class="trash"><ion-icon name="trash-outline" size="large"></ion-icon></button>
+
         
     </div>
-  </ion-item>
-  
-  <div *ngIf="mostrarModal">
-    <ion-modal [initialBreakpoint]="1" [breakpoints]="[0, 1]">
-      <ng-template>
-        <div class="block">Block of Content</div>
-      </ng-template>
-    </ion-modal>
   </div>
- 
+  
 
+  
 </ion-content>
 
 

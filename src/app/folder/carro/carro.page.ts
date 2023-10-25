@@ -60,7 +60,11 @@ export class CarroPage implements OnInit {
     this.tipoDocumento = documento;
 
   }
+  isModalOpen = false;
 
+  setOpen(isOpen: boolean) {
+    this.isModalOpen = isOpen;
+  }
   
   async eliminarProducto(id: number) {
     this.productos = this.productos.filter((producto) => producto.id !== id);
