@@ -5,6 +5,7 @@ import * as moment from "moment";
 import { tap,shareReplay  } from 'rxjs/operators';
 
 const apiUrl = "http://127.0.0.1:8000/api/backend/log/";
+const apiclave = "http://127.0.0.1:8000/api/backend/cambiarclave/";
 const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
 import { globalData  } from 'src/app/constants/user';
 @Injectable({
@@ -22,6 +23,10 @@ export class AuthServiceService {
     .pipe(
       tap((res: any) => this.setSession(res))
     );
+  }
+
+  cambiar(user: string, clave: string) {
+    return this.http.post<ClApiResp>(apiclave, {user, clave}, httpOptions)
   }
 
   whoLogin(){

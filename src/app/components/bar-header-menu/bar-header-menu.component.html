@@ -3,7 +3,9 @@
     <ion-buttons slot="start">
       <ion-icon name="person-circle-sharp" size="large"></ion-icon>
 
-      <ion-label color="light" >Hola, {{ storedUsername }} </ion-label>
+      <ion-label *ngIf="!isUserLoggedIn()" color="light" >Hola, Cliente </ion-label>
+      <ion-label *ngIf="isUserLoggedIn()" color="light" >Hola, Invitado</ion-label>
+
 
 
     </ion-buttons>

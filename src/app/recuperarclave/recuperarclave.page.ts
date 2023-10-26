@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import{  FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ActivatedRoute,Router } from '@angular/router';
-import { AuthServiceService } from './auth-service.service';
+import { AuthServiceService } from '../login/auth-service.service';
 import { LoadingController,AlertController } from '@ionic/angular';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss'],
+  selector: 'app-recuperarclave',
+  templateUrl: './recuperarclave.page.html',
+  styleUrls: ['./recuperarclave.page.scss'],
 })
-export class LoginPage implements OnInit {
+export class RecuperarclavePage implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
@@ -18,7 +18,9 @@ export class LoginPage implements OnInit {
     private router: Router) { }
   usuarioForm!:FormGroup;
   usuario:any;
+  coodigo:any;
   clave:any;
+  confirmarclave:any;
 
 
   ngOnInit() {
@@ -26,7 +28,9 @@ export class LoginPage implements OnInit {
 
     this.usuarioForm = this.formBuilder.group({
       'usuario': [null,Validators.required],
-      'clave': [null,Validators.required]
+      'coodigo': [null,Validators.required],
+      'clave': [null,Validators.required],
+      'confirmarclave': [null,Validators.required]
   });
   }
 
@@ -37,7 +41,7 @@ export class LoginPage implements OnInit {
         });
         await loading.present();
         console.log(this.usuarioForm.get('usuario')!.value,)
-        this.authService.login(this.usuarioForm.get('usuario')!.value, this.usuarioForm.get('clave')!.value)
+        this.authService.cambiar(this.usuarioForm.get('usuario')!.value, this.usuarioForm.get('clave')!.value)
             .subscribe(
                 (res) => {
                   console.log(res)
@@ -45,10 +49,9 @@ export class LoginPage implements OnInit {
                   if (res.msg === 'error') {
                     alert('Error al ingresar los datos');
                   } else {
-                    localStorage.setItem('username',this.usuarioForm.get('usuario')!.value);
                     loading.dismiss();
 
-                    this.router.navigate(['/perfil']);
+                    this.router.navigate(['/login']);
                     
                   }
                 }

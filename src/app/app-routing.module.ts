@@ -21,6 +21,10 @@ const routes: Routes = [
     loadChildren: () => import('./registrarse/registrarse.module').then( m => m.RegistrarsePageModule)
   },
   {
+    path: 'recuperarclave',
+    loadChildren: () => import('./recuperarclave/recuperarclave.module').then( m => m.RecuperarclavePageModule)
+  },
+  {
     path: 'perfil',
     loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
     //,canActivate:[AccesoUsuariosGuard]

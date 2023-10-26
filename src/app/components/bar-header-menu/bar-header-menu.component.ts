@@ -29,4 +29,14 @@ export class BarHeaderMenuComponent implements OnInit {
     this.storedUsername = username ;
 
   }
+  username1: string='';
+
+  isUserLoggedIn() {
+    this.username1 = this.authService.whoLogin();
+
+    if(this.username1=='Invitado'){
+      return true;
+    }
+    return false;
+  }
 }

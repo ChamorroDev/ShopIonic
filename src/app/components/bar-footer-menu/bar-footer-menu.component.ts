@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { globalData } from 'src/app/constants/user';
+import { AuthServiceService } from '../../login/auth-service.service';
+
 
 @Component({
   selector: 'footer-menu',
@@ -7,7 +10,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./bar-footer-menu.component.scss'],
 })
 export class BarFooterMenuComponent  {
-  constructor(private router: Router) {}
+  constructor(private router: Router,
+    private authService: AuthServiceService,
+    ) {}
 
   isFolderRoute() {
     return this.router.isActive('/folder', true);
@@ -21,5 +26,32 @@ export class BarFooterMenuComponent  {
   isCarroRoute() {
     return this.router.isActive('/folder/carro', true);
     
+  }
+  isPRoute() {
+    return this.router.isActive('/login', true);
+    
+  }
+  isRRoute() {
+    return this.router.isActive('/registrarse', true);
+    
+  }
+  ngOnInit() {
+    this.isUserLoggedIn()
+  }
+
+  ionViewWillEnter() {
+    this.isUserLoggedIn()
+
+  }
+
+  username: string='';
+
+  isUserLoggedIn() {
+    this.username = this.authService.whoLogin();
+
+    if(this.username=='Invitado'){
+      return false;
+    }
+    return true;
   }
 }
