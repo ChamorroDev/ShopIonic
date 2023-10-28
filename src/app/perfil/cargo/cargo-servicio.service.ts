@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { CLCargo,ResCLCargo } from "../../model/CLCargo";
+import { CLCargo,ResCLCargo } from "../../model/ClCargo";
 import { Observable,of,throwError } from "rxjs";
 import { catchError,tap,map } from "rxjs";
 

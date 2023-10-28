@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { ProveedoresPageRoutingModule } from './proveedores-routing.module';
-
+import { ComponentsModule } from 'src/app/components.module';
 import { ProveedoresPage } from './proveedores.page';
 
 @NgModule({
@@ -13,7 +13,8 @@ import { ProveedoresPage } from './proveedores.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    ProveedoresPageRoutingModule
+    ProveedoresPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [ProveedoresPage]
 })

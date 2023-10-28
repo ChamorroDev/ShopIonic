@@ -1,0 +1,39 @@
+
+
+
+
+.buscador{
+  --background:#00bbfe ;
+}
+.btn-agregar{
+  color:#00bbfe ;
+
+}
+
+
+.btnAñadir{
+
+  color:white;
+
+}
+.ion-color-azul {
+  --ion-color-base: var(--ion-color-azul);
+  --ion-color-base-rgb: var(--ion-color-azul-rgb);
+  --ion-color-contrast: var(--ion-color-azul-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-azul-contrast-rgb);
+  --ion-color-shade: var(--ion-color-azul-shade);
+  --ion-color-tint: var(--ion-color-azul-tint);
+}
+.miDiv{
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  margin-top: 5%;
+  justify-content:space-around;
+  border: 1px solid rgb(200, 200, 200);
+  align-items: center;
+
+}
+
+
+

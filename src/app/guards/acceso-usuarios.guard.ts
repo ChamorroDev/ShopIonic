@@ -13,7 +13,9 @@ export class AccesoUsuariosGuard implements CanActivate, CanActivateChild, CanDe
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      if (globalData.RUT_CLIENTE) {
+    const rut = localStorage.getItem('username');
+      
+      if (rut!='Invitado') {
         return true; 
       } 
       this.router.navigate(['/login']);

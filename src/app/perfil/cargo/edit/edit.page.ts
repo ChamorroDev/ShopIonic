@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoadingController,AlertController } from '@ionic/angular';
 import { ActivatedRoute,Router } from '@angular/router';
 import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
-import { CLCargo,ResCLCargo } from '../../../model/CLCargo';
+import { CLCargo,ResCLCargo } from '../../../model/ClCargo';
 import { CargoServiceService } from '../cargo-servicio.service';
 
 

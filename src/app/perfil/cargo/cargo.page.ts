@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoadingController } from '@ionic/angular';
 import { ActivatedRoute,Router } from '@angular/router';
 
-import { CLCargo,ResCLCargo } from '../../model/CLCargo';
+import { CLCargo,ResCLCargo } from '../../model/ClCargo';
 import { CargoServiceService } from './cargo-servicio.service';
 
 @Component({

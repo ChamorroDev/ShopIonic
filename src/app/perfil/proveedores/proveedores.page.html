@@ -1,38 +1,33 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>Proveedores</ion-title>
-    <ion-buttons slot="end">
-      <ion-back-button defaultHref="/"></ion-back-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
+<header-menu>
 
-<ion-content [fullscreen]="true">
-  <ion-list>
-    <ion-item *ngFor="let pro of proveedor">
-      <ion-avatar slot="start">
-        <ion-img [src]="pro.imagen"></ion-img>
-      </ion-avatar>
-      <ion-label>
-        <h2>{{ pro.nombre }}</h2>
-        <p>Empresa: {{ pro.empresa }}</p>
-        <p>Articulo: {{ pro.articulo }}</p>
-        <p>Teléfono: {{ pro.telefono }}</p>
-      </ion-label>
+</header-menu>
+<ion-toolbar class="buscador">
+  <ion-searchbar placeholder="Buscador" animated (ionChange)="searchProveedores($event)"></ion-searchbar>
+</ion-toolbar>
+<ion-content >
 
-      <ion-button expand="full" [routerLink]="'/perfil/proveedores/edit'"><ion-icon name="pencil-outline"></ion-icon></ion-button>
 
-      <ion-button id="present-alert"><ion-icon name="close-circle-outline"></ion-icon></ion-button>
-      <ion-alert trigger="present-alert"header="Alert"subHeader="Important message"message="This is an alert!"[buttons]="alertButtons"></ion-alert>
-
+  <ion-card *ngFor="let pro of searchProveedor" [routerLink]="['/perfil/proveedores/edit',pro.id]">
+    <ion-item class="bg-gris bold">
+      <h6>{{ pro.nombre }}</h6>
     </ion-item>
-  </ion-list>
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button>
-      <ion-icon name="add" [routerLink]="['/perfil/proveedores/add']"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
+
+    <ion-item>
+          <h6>Modificado: {{ pro.edited|date:"d/MM/Y H:mm:s" }}</h6>
+    </ion-item>
+
+    <ion-item>
+          <h6>Creado: {{ pro.created|date:"d/MM/Y H:mm:s" }}</h6>
+    </ion-item>
+
+  </ion-card>
+
+
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button color="azul">
+    <ion-icon name="add"size="large" [routerLink]="['/perfil/proveedores/add']"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
 </ion-content>
+<footer-menu></footer-menu>

@@ -24,6 +24,9 @@ constructor(public restApi: DireccionServicioService
   ngOnInit() {
     this.getDirecciones();
   }
+  ionViewWillEnter() {
+    this.getDirecciones();
+}
 
   async getDirecciones() {
     const loading = await this.loadingController.create({

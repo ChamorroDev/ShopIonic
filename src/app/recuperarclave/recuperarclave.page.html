@@ -1,14 +1,35 @@
-<header-menu></header-menu>
+
+<ion-header [translucent]="true"class="bartop">
+  <ion-toolbar class="bartop">
+    <ion-buttons slot="start" >
+      <div class="topbarelementos">
+        <div class="xd"  >
+          <ion-icon [routerLink]="['/login/']" color="light" name="arrow-back" size="large"></ion-icon>
+          
+        </div>
+        <h1 class="color-blanco">Recuperar clave</h1>
 
 
+      </div>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
 <ion-content>
+  <br>
+  <br>
+  <br>
+
+
   <form [formGroup]="usuarioForm" (ngSubmit)="onFormSubmit(usuarioForm.value)">    
     <ion-item lines="full">
       <ion-label position="floating">Usuario</ion-label>
       <ion-input type="text" required [(ngModel)]="usuario" formControlName="usuario"></ion-input>
     </ion-item>
+      <ion-button color="primary" expand="block" >Enviar código</ion-button>
+
     <ion-item lines="full">
-      <ion-label position="floating">Coodigo</ion-label>
+      <ion-label position="floating">Código</ion-label>
       <ion-input type="text" required [(ngModel)]="coodigo" formControlName="coodigo"></ion-input>
     </ion-item>
     <ion-item lines="full">
@@ -21,7 +42,7 @@
     </ion-item>
     <ion-row>
       <ion-col>
-        <ion-button type="submit" color="success" expand="block" >Confirmar</ion-button>
+        <ion-button type="submit" color="success" expand="block" >Cambiar clave</ion-button>
 
       </ion-col>
     </ion-row>

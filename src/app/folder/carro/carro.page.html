@@ -166,10 +166,11 @@
       <ion-item>
         Total:<span class="bold" slot="end"> {{ formatPrice(total) }}</span>
       </ion-item>
-    <button class="cart-btn bold" (click)=limpiarCart()>Limpiar carro</button>
-    <button class="cart-btn bold" (click)=addcart(0)  >Seguir comprando</button>
-    <button class="cart-btn bold"(click)=addcart(1)>Continuar</button>
-
+    
+        <button class="cart-btn bold "  (click)=limpiarCart()>Limpiar carro</button>
+        <button class="cart-btn bold " (click)=addcart(0) >Volver a tienda</button>
+        <button class="cart-btn bold "(click)=addcart(1)>Continuar</button>
+        
   </div>
 
 </ion-footer>

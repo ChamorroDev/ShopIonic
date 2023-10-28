@@ -1,12 +1,33 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>Empleados </ion-title>
-    <ion-buttons slot="end">
-      <ion-back-button defaultHref="/"></ion-back-button>
-      <ion-icon name="cart"size="large" color="primary"></ion-icon>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
+<header-menu>
+
+</header-menu>
+<ion-toolbar class="buscador">
+  <ion-searchbar placeholder="Buscador" animated (ionChange)="searchEmpleados($event)"></ion-searchbar>
+</ion-toolbar>
+<ion-content >
+
+
+  <ion-card *ngFor="let emp of searchEmpleado" [routerLink]="['/perfil/empleado/edit',emp.id]">
+    <ion-item class="bg-gris bold">
+      <h6>{{ emp.nombre }}</h6>
+    </ion-item>
+
+    <ion-item>
+          <h6>Modificado: {{emp.edited|date:"d/MM/Y H:mm:s" }}</h6>
+    </ion-item>
+
+    <ion-item>
+          <h6>Creado: {{ emp.created|date:"d/MM/Y H:mm:s" }}</h6>
+    </ion-item>
+
+  </ion-card>
+
+
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button color="azul">
+    <ion-icon name="add"size="large" [routerLink]="['/perfil/empleado/add']"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+</ion-content>
+<footer-menu></footer-menu>

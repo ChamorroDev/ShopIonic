@@ -1,29 +1,69 @@
 import { Component, OnInit } from '@angular/core';
+import { LoadingController } from '@ionic/angular';
+import { ActivatedRoute,Router } from '@angular/router';
 
-interface Proveedores{
-  id:string;
-  nombre:string;
-  empresa:string;
-  articulo:string;
-  telefono:string;
-  imagen:string;
-}
+import { ClProveedor,ResClProveedor } from '../../model/ClProveedor';
+import { ProveedorServiceService } from './proveedores-servicio.service';
+import { ClProducto } from 'src/app/model/ClProducto';
+
 
 @Component({
   selector: 'app-proveedores',
   templateUrl: './proveedores.page.html',
   styleUrls: ['./proveedores.page.scss'],
 })
-export class ProveedoresPage implements OnInit { public alertButtons = ['OK'];
+export class ProveedoresPage implements OnInit { 
 
-  constructor() { }
-  proveedor: Proveedores[]=[
-    {id:'1',nombre:'Pablo Andres',empresa:'eñvidia',articulo:'Celular ñokia ',telefono:'+569 0430 5483',imagen:'https://via.placeholder.com/100'},
-    {id:'1',nombre:'Pablo Andres',empresa:'eñvidia',articulo:'Celular ñokia ',telefono:'+569 0430 5483',imagen:'https://via.placeholder.com/100'},
-    {id:'1',nombre:'Pablo Andres',empresa:'eñvidia',articulo:'Celular ñokia ',telefono:'+569 0430 5483',imagen:'https://via.placeholder.com/100'},
-  ]
+  constructor(public restApi:ProveedorServiceService
+    , public loadingController: LoadingController
+    , public router: Router) { }
+    
+    ResClProveedor: ResClProveedor = new  ResClProveedor({});
+    proveedor:ClProveedor[]=[];
+    searchProveedor:ClProveedor[]=[];
 
   ngOnInit() {
+    this.getProveedores();
+  }
+
+
+  searchProveedores(event:any){
+    const text = event.target.value;
+    this.searchProveedor=this.proveedor;
+    if (text && text.trim()!=''){
+      this.searchProveedor=this.searchProveedor.filter((cargo:any)=>{
+        return(cargo.nombre.toLowerCase().indexOf(text.toLowerCase())> -1);
+      })
+    }
+  }
+  ionViewWillEnter() {
+    this.getProveedores();
+  }
+
+
+
+
+
+
+  async getProveedores() {
+    const loading = await this.loadingController.create({
+      message: 'Cargando...'
+    });
+    await loading.present();
+    await this.restApi.getProveedores()
+      .subscribe({
+        next: (res) => {
+          this.ResClProveedor=res;
+          this.proveedor = this.ResClProveedor.registro;
+          this.searchProveedor=this.proveedor;
+          loading.dismiss();
+        }
+        , complete: () => { }
+        , error: (err) => {
+          console.log("Err:" + err);
+          loading.dismiss();
+        }
+      })
   }
 
 }
