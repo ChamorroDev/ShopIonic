@@ -1,21 +1,11 @@
 
 
-/* lista de proveedores */
-ion-item {
-  background-color: #fff;
-  border-radius: 8px;
-  margin-bottom: 12px;
-  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
-  border: 1px solid #000;
+.buscador{
+  --background:#00bbfe ;
 }
-ion-label {
-  padding: 16px;
-}
-ion-avatar ion-img {
-  border-radius: 50%;
-  width: 64px;
-  height: 64px;
-  object-fit: cover;
-  display: block;
-  margin: 0 auto;
+
+
+.margintop5{
+  margin-top: 5%;
+  border: 1px rgb(197, 197, 197) solid;
 }

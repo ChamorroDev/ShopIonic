@@ -21,13 +21,22 @@ export class AddPage implements OnInit {
 
 
     resClProveedor:ResClProveedor = new ResClProveedor({});
-    proveedor:ClProveedor={id:1,rut:'',nombre:'',created:new Date(),edited:new Date(),actived:1};
+    proveedor:ClProveedor={
+      id: 1, rut: '', nombre: '', created: new Date(), edited: new Date(), actived: 1,
+      dv: '',
+      email: '',
+      telefono: ''
+    };
     proveedorForm!:FormGroup;
 
   ngOnInit() {
     this.proveedorForm= this.formBuilder.group({
       "pro_rut":[null, Validators.required],
-      "pro_nombre":[null, Validators.required]
+      "pro_dv":[null, Validators.required],
+      "pro_nombre":[null, Validators.required],
+      "pro_email":[null, Validators.required],
+      "pro_telefono":[null, Validators.required],
+
     });
   }
   async onFormSubmit(form:NgForm){

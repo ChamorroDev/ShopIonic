@@ -9,15 +9,24 @@
 
   <ion-card *ngFor="let pro of searchProveedor" [routerLink]="['/perfil/proveedores/edit',pro.id]">
     <ion-item class="bg-gris bold">
+      <h6>Nombre del proveedor</h6>
+    </ion-item>
+    <ion-item >
       <h6>{{ pro.nombre }}</h6>
     </ion-item>
 
+    <ion-item class="bg-gris bold">
+      <h6>Correo electronico</h6>
+    </ion-item>
     <ion-item>
-          <h6>Modificado: {{ pro.edited|date:"d/MM/Y H:mm:s" }}</h6>
+          <h6>{{ pro.email }}</h6>
     </ion-item>
 
+<ion-item class="bg-gris bold">
+      <h6>Teléfono</h6>
+    </ion-item>
     <ion-item>
-          <h6>Creado: {{ pro.created|date:"d/MM/Y H:mm:s" }}</h6>
+          <h6>{{ pro.telefono}}</h6>
     </ion-item>
 
   </ion-card>

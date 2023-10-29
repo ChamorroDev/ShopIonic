@@ -1,0 +1,37 @@
+<header-menu>
+
+</header-menu>
+
+
+<ion-content >
+    <ion-card *ngFor="let compra of lista_compras" [routerLink]="obtenerRutaDetalle(compra)">
+     
+        <ion-item  class="bg-gris bold">
+          <h6>Fecha de compra: {{ compra.documento.fecha_emision }}</h6>
+        </ion-item>
+        <ion-item class="bg-gris bold" >
+            <h6>N° del pedido : {{ compra.documento.numero }}</h6>
+          </ion-item>
+          <ion-item class="bg-gris bold" >
+            <h6>Tipo de despacho: {{ compra.tipoDespacho }} </h6>
+          </ion-item>
+        <ion-item class="bg-gris bold" *ngIf="compra.documento.tipoDespacho === 1">
+          <h6>Retiro en: {{ compra.direccion }}</h6>
+        </ion-item>
+        
+        <ion-item class="bg-gris bold" *ngIf="compra.documento.tipoDespacho === 2">
+            <h6>Envio a domicilio: {{ compra.direccion }}</h6>
+          </ion-item>
+
+          <ion-item  class="bg-gris bold">
+            
+            <h6>Total del pedido: {{formatPrice(compra.documento.precio_total)  }}</h6>
+      </ion-item>
+
+        <ion-item class="bg-gris bold" >
+            <h6>Estado del pedido: {{ compra.estadoPedido }}</h6>
+        </ion-item>
+      </ion-card>
+
+</ion-content>
+<footer-menu></footer-menu>

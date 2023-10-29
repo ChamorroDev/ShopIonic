@@ -56,6 +56,7 @@ export class ProveedoresPage implements OnInit {
           this.ResClProveedor=res;
           this.proveedor = this.ResClProveedor.registro;
           this.searchProveedor=this.proveedor;
+
           loading.dismiss();
         }
         , complete: () => { }

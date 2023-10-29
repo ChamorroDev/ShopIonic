@@ -1,39 +1,93 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
+<ion-header [translucent]="true" class="bartop">
+  <ion-toolbar class="bartop">
     <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>Editar Proveedor</ion-title>
-    <ion-buttons slot="end">
-      <ion-back-button defaultHref="/"></ion-back-button>
-      <ion-icon name="cart"size="large" color="primary"[routerLink]="['/carrito']" ></ion-icon>
+      <div class="topbarelementos">
+        <div class="xd">
+          <ion-icon
+            [routerLink]="['/perfil/proveedores']"
+            color="light"
+            name="arrow-back"
+            size="large"
+          ></ion-icon>
+        </div>
+
+        <h1 class="color-blanco">Editar proveedor</h1>
+      </div>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-<ion-content [fullscreen]="true">
-  <ion-content>
-    <ion-list>
-      <ion-item>
-        <ion-label position="floating">Nombre</ion-label>
-        <ion-input type="text" ></ion-input>
+
+<ion-content padding>
+  <form
+    [formGroup]="proveedorForm"
+    (ngSubmit)="onFormSubmit(proveedorForm.value)"
+  >
+    <ion-card>
+      <ion-item class="bg-gris bold">
+        <h3>Rut del Proveedor</h3>
       </ion-item>
       <ion-item>
-        <ion-label position="floating">Empresa</ion-label>
-        <ion-input type="text"></ion-input>
+        <ion-input
+          type="text"
+          [(ngModel)]="proveedor.rut"
+          placeholder="Ingresar RUT"
+          formControlName="pro_rut"
+        ></ion-input>
+      </ion-item>
+      <ion-item class="bg-gris bold">
+        <h3>DV</h3>
       </ion-item>
       <ion-item>
-        <ion-label position="floating">Articulo</ion-label>
-        <ion-input type="text"></ion-input>
+        <ion-input
+          type="text"
+          [(ngModel)]="proveedor.dv"
+          placeholder="Ingresar dv"
+          formControlName="pro_dv"
+        ></ion-input>
+      </ion-item>
+      <ion-item class="bg-gris bold">
+        <h3>Nombre del Proveedor</h3>
       </ion-item>
       <ion-item>
-        <ion-label position="floating">Telefono</ion-label>
-        <ion-input type="text"></ion-input>
+        <ion-input
+          type="text"
+          [(ngModel)]="proveedor.nombre"
+          placeholder="Ingresar nombre"
+          formControlName="pro_nombre"
+        ></ion-input>
+      </ion-item>
+      <ion-item class="bg-gris bold">
+        <h3>Correo electronico</h3>
       </ion-item>
       <ion-item>
-        <ion-label position="stacked">Selecciona una imagen:</ion-label>
-        <ion-input type="file"></ion-input>
+        <ion-input
+          type="text"
+          [(ngModel)]="proveedor.email"
+          placeholder="Ingresar email"
+          formControlName="pro_email"
+        ></ion-input>
       </ion-item>
-    </ion-list>
-    <ion-button expand="full" >Guardar</ion-button>
-  </ion-content>
+      <ion-item class="bg-gris bold">
+        <h3>Teléfono</h3>
+      </ion-item>
+      <ion-item>
+        <ion-input
+          type="text"
+          [(ngModel)]="proveedor.telefono"
+          placeholder="Ingresar teléfono"
+          formControlName="pro_telefono"
+        ></ion-input>
+      </ion-item>
+
+      <ion-button
+        type="submit"
+        color="azul"
+        expand="block"
+        [disabled]="!proveedorForm.valid"
+        >Guardar</ion-button
+      >
+    </ion-card>
+  </form>
 </ion-content>
+
+<footer-menu></footer-menu>

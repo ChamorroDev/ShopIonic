@@ -15,9 +15,9 @@
         </ion-tab-button>
 
  
-          <ion-tab-button  layout="icon-top" *ngIf="isUserLoggedIn()">
-            <ion-icon name="document"></ion-icon>
-            <ion-label>Historial</ion-label>
+          <ion-tab-button  layout="icon-top" *ngIf="isUserLoggedIn()" [ngClass]="{ 'active-button': isComprasRoute() }" [routerLink]="['/perfil/mis-compras']">
+            <fa-icon icon="bag-shopping" size="2xl" ></fa-icon>
+            <ion-label>Mis compras</ion-label>
           </ion-tab-button>
 
           <ion-tab-button  layout="icon-top" *ngIf="isUserLoggedIn()" [ngClass]="{ 'active-button': isPerfilRoute() }" [routerLink]="['/perfil']">
@@ -26,7 +26,7 @@
           </ion-tab-button>
         
           <ion-tab-button  layout="icon-top"*ngIf="!isUserLoggedIn()" [ngClass]="{ 'active-button': isRRoute() }" [routerLink]="['/registrarse']">
-            <ion-icon name="person"></ion-icon>
+            <ion-icon name="person-add"></ion-icon>
             <ion-label>Registrarse</ion-label>
           </ion-tab-button>
           <ion-tab-button  layout="icon-top" *ngIf="!isUserLoggedIn()"[ngClass]="{ 'active-button': isPRoute() }" [routerLink]="['/login']">

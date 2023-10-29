@@ -4,19 +4,19 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { EditPageRoutingModule } from './edit-routing.module';
+import { DetalleFacturaPageRoutingModule } from './detalle-factura-routing.module';
 
-import { EditPage } from './edit.page';
+import { DetalleFacturaPage } from './detalle-factura.page';
 import { ComponentsModule } from '../../../components.module';
-import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    EditPageRoutingModule,ReactiveFormsModule,ComponentsModule
+    DetalleFacturaPageRoutingModule,
+    ComponentsModule,
   ],
-  declarations: [EditPage]
+  declarations: [DetalleFacturaPage],
 })
-export class EditPageModule {}
+export class DetalleFacturaPageModule {}

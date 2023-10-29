@@ -2,7 +2,6 @@ export class ClProveedor{
   id:number;
   rut:string;
   dv:string;
-
   nombre:string;  
   email:string;  
   telefono:string;  
@@ -28,8 +27,6 @@ export class ResClProveedor{
     count:number;
     OK:boolean;
     registro:any;
-
-
 
     constructor(obj: any){
         this.msg = obj && obj.msg || null;
