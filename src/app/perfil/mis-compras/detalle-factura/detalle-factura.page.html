@@ -1,25 +1,122 @@
-<ion-header [translucent]="true"class="bartop">
+<ion-header [translucent]="true" class="bartop">
   <ion-toolbar class="bartop">
-    <ion-buttons slot="start" >
+    <ion-buttons slot="start">
       <div class="topbarelementos">
-        <div class="xd"  >
-
-          <ion-icon [routerLink]="['/perfil/mis-compras/']" color="light" name="arrow-back" size="large"></ion-icon>
+        <div class="xd">
+          <ion-icon [routerLink]="['/perfil/mis-compras/']" color="light" name="arrow-back" size="large" class="icon-back"></ion-icon>
         </div>
-
-        <h1 class="color-blanco">Detalle factura </h1>
-
+        <h1 class="color-blanco title-header">Detalle factura</h1>
       </div>
     </ion-buttons>
 
-
+    <ion-buttons slot="end">
+      <ion-button id="open-modal" expand="block" class="button-icon">
+        <ion-icon name="ellipsis-vertical" color="light" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 
-<ion-content >
-  
+<ion-modal trigger="open-modal" [initialBreakpoint]="0.25" [breakpoints]="[0, 0.25, 0.5, 0.75]" handleBehavior="cycle">
+  <ng-template>
+    <ion-content class="ion-padding">
+      <div class="ion-margin-top">
+        <ion-button expand="block" color="medium">
+          <h3 class="color-blanco">Ver boleta y otros</h3>
+        </ion-button>
 
+        <ion-button expand="block" color="medium">
+          <h3 class="color-blanco">Cambiar dirección</h3>
+        </ion-button>
+
+        <ion-button expand="block" color="medium">
+          <h3 class="color-blanco">Evaluar productos</h3>
+        </ion-button>
+
+        <ion-button expand="block" color="medium">
+          <h3 class="color-blanco">Ayuda</h3>
+        </ion-button>
+
+        <ion-button expand="block" color="medium">
+          <h3 class="color-blanco">Devolver producto</h3>
+        </ion-button>
+
+        <ion-button expand="block" color="danger">
+          <h3 class="color-blanco">Cancelar compra</h3>
+        </ion-button>
+      </div>
+    </ion-content>
+  </ng-template>
+</ion-modal>
+
+
+<ion-content>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Detalles de la Factura</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-list lines="full">
+        <ion-item>
+          <ion-label>Número de Factura:</ion-label>
+          <ion-label>{{ compra.numero }}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Fecha de Emisión:</ion-label>
+          <ion-label>{{ compra.fecha_emision }}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Estado de Pedido:</ion-label>
+          <ion-label>{{ compra.estadoPedido_nombre }}</ion-label>
+        </ion-item>
+        <ion-item *ngIf="compra.forma_pago_nombre">
+          <ion-label>Forma de Pago:</ion-label>
+          <ion-label>{{ compra.forma_pago_nombre }}</ion-label>
+        </ion-item>
+        <ion-item *ngIf="compra.tipoDespacho_nombre">
+          <ion-label>Tipo de Despacho:</ion-label>
+          <ion-label>{{ compra.tipoDespacho_nombre }}</ion-label>
+        </ion-item>
+        <ion-item *ngIf="compra.retiroPersona_info">
+          <ion-label>Retiro por:</ion-label>
+          <ion-label>{{ compra.retiroPersona_info }}</ion-label>
+        </ion-item>
+        <ion-item *ngIf="compra.direccion_info">
+          <ion-label>Dirección de Envío:</ion-label>
+          <ion-label>{{ compra.direccion_info }}</ion-label>
+        </ion-item>
+        <ion-item *ngIf="compra.precio_total">
+          <ion-label>Total de la compra:</ion-label>
+          <ion-label>{{ formatPrice(compra.precio_total) }}</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Productos en la Factura</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-list lines="full">
+        <ion-item *ngFor="let detalle of detallecompra">
+          <ion-thumbnail slot="start">
+            <ion-img [src]="detalle.foto_producto"></ion-img>
+          </ion-thumbnail>
+          <ion-label>
+            <h2>{{ detalle.producto_nombre }}</h2>
+            <p>Cantidad: {{ detalle.cantidad }}</p>
+            <p>Precio Unitario: {{ formatPrice(detalle.precio_unitario) }}</p>
+            <p>Subtotal: {{ formatPrice(detalle.subtotal) }}</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
 
 </ion-content>
 <footer-menu></footer-menu>

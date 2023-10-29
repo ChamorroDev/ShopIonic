@@ -1,48 +1,95 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
+<ion-header [translucent]="true" class="bartop">
+  <ion-toolbar class="bartop">
     <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+      <div class="topbarelementos">
+        <div class="xd">
+          <h1 class="color-blanco">Regístrate</h1>
+        </div>
+      </div>
     </ion-buttons>
-    <ion-title>Registrarse</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <form>
-    <ion-item lines="full">
-      <ion-label position="floating">Primer Nombre</ion-label>
-      <ion-input type="text" required  minlength="8" maxlength="20"></ion-input>
-    </ion-item>
-    <ion-item lines="full">
-      <ion-label position="floating">Segundo nombre</ion-label>
-      <ion-input type="text" required  minlength="8" maxlength="20"></ion-input>
-    </ion-item>
-    <ion-item lines="full">
-      <ion-label position="floating">Email</ion-label>
-      <ion-input type="text" required  minlength="8" maxlength="20"></ion-input>
-    </ion-item>
-    <ion-item lines="full">
-      <ion-label position="floating">Contraseña</ion-label>
-      <ion-input type="password" required minlength="8" maxlength="20"></ion-input>
-      <!-- Establecemos un mínimo de 8 caracteres y un máximo de 20 caracteres para la contraseña -->
-    </ion-item>
-    <ion-item lines="full">
-      <ion-label position="floating"> Confirmar Contraseña</ion-label>
-      <ion-input type="password" required minlength="8" maxlength="20"></ion-input>
-      <!-- Establecemos un mínimo de 8 caracteres y un máximo de 20 caracteres para la contraseña -->
-    </ion-item>
-    <ion-row>
-      <ion-col>
-        <ion-button id="present-alert">Registrar</ion-button>
-        <ion-alert
-          trigger="present-alert"
-          header="Felicidades"
-          subHeader="Su registro esta completo  "
-          message="se le mandara un Mensaje con un link  a su correo para confirmar que no es un bot !"
-          [buttons]="alertButtons"
-        ></ion-alert>
+<ion-content >
 
-      </ion-col>
-    </ion-row>
-  </form>
+  <ion-card class="">
+    <form [formGroup]="usuarioForm" (ngSubmit)="onFormSubmit(usuarioForm.value)">
+      <ion-item>
+        <ion-label position="floating">Nombre de usuario</ion-label>
+        <ion-input type="text" name="nombre-usuario" required [(ngModel)]="user" formControlName="user"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input [type]="showPassword ? 'text' : 'password'" name="clave" required [(ngModel)]="clave" formControlName="clave"></ion-input>
+        <ion-icon
+          name="eye-outline"
+          slot="end"
+          (click)="togglePassword()"
+          [color]="showPassword ? 'primary' : 'medium'"
+        ></ion-icon>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label position="floating">Repetir Contraseña</ion-label>
+        <ion-input [type]="showPassword1 ? 'text' : 'password'" name="clave" required></ion-input>
+        <ion-icon
+          name="eye-outline"
+          slot="end"
+          (click)="togglePassword1()"
+          [color]="showPassword1 ? 'primary' : 'medium'"
+        ></ion-icon>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label position="floating">RUT</ion-label>
+        <ion-input type="text" name="rut"(ionChange)="separarRut()" required  [(ngModel)]="rut" formControlName="rut"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Nombres</ion-label>
+        <ion-input type="text" name="nombres" required  [(ngModel)]="nombre" formControlName="nombre"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Apellido Paterno</ion-label>
+        <ion-input type="text" name="apellido-paterno" required  [(ngModel)]="appaterno" formControlName="appaterno"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Apellido Materno</ion-label>
+        <ion-input type="text" name="apellido-materno" required  [(ngModel)]="apmaterno" formControlName="apmaterno"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Género:</ion-label>
+        <ion-select
+          label="Seleccione su género" 
+          cancelText="Cancelar" 
+          okText="Aceptar"
+          [(ngModel)]="genero" formControlName="genero">
+          <ion-select-option *ngFor="let genero of generolista" [value]="genero.id">{{ genero.name }}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Correo electrónico</ion-label>
+        <ion-input type="email" name="correo" required [(ngModel)]="email" formControlName="email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Teléfono</ion-label>
+        <ion-input type="tel" name="telefono" required [(ngModel)]="telefono" formControlName="telefono"></ion-input>
+      </ion-item>
+
+      
+
+      <ion-button expand="block" type="submit" color="azul" class="button-submit">
+        Registrarse
+      </ion-button>
+    </form>
+    </ion-card>
 </ion-content>
+
+<footer-menu></footer-menu>
+

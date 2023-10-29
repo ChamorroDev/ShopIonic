@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoadingController } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ComprasServicioService } from '../compras-servicio.service';
+import { ClCompra, ClDetalleCompra } from '../../../model/ClCompra';
 
 @Component({
   selector: 'app-detalle-factura',
@@ -15,6 +16,9 @@ export class DetalleFacturaPage implements OnInit {
     public router: Router,
     public route: ActivatedRoute
   ) {}
+
+  compra: ClCompra = new ClCompra({});
+  detallecompra: ClDetalleCompra[] = [];
 
   ngOnInit() {
     this.getCompras();
@@ -33,7 +37,11 @@ export class DetalleFacturaPage implements OnInit {
     await loading.present();
     await this.restApi.getFactura(this.route.snapshot.params['id']).subscribe({
       next: (res) => {
-        console.log(res);
+        console.log(res.registro);
+        this.compra = res.registro.Factura;
+        this.detallecompra = res.registro.FacturaDetalle;
+        console.log(this.detallecompra);
+
         loading.dismiss();
       },
       complete: () => {},

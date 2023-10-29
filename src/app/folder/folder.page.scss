@@ -70,6 +70,34 @@ ion-searchbar {
 
 
 
+.custom-product-card {
+  width: 100%; 
+  max-width: 300px; 
+  margin: 0 auto; 
+}
+
+.div-imagen img {
+  width: 100%;
+  height: auto; 
+  max-width: 100%;
+}
+
+.product-description {
+  max-height: 2.4em;
+}
+
+@media only screen and (min-width: 600px) {
+  .custom-product-card {
+    width: 250px;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+ 
+  .custom-product-card {
+    width: 300px;
+  }
+}
 
 
 

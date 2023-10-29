@@ -26,7 +26,15 @@
       <ion-label position="floating">Usuario</ion-label>
       <ion-input type="text" required [(ngModel)]="usuario" formControlName="usuario"></ion-input>
     </ion-item>
-      <ion-button color="primary" expand="block" >Enviar código</ion-button>
+      <ion-button id="present-alert" color="azul" expand="block" >Enviar código</ion-button>
+
+            <ion-alert
+        trigger="present-alert"
+        header="Recuperación de clave"
+        subHeader="Código enviado"
+        message="Por favor revisar su correo"
+        [buttons]="alertButtons"
+      ></ion-alert>
 
     <ion-item lines="full">
       <ion-label position="floating">Código</ion-label>

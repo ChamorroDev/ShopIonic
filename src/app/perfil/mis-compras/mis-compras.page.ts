@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoadingController } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ClProveedor, ResClProveedor } from '../../model/ClProveedor';
 import { ComprasServicioService } from './compras-servicio.service';
-import { ClProducto } from 'src/app/model/ClProducto';
 
 @Component({
   selector: 'app-mis-compras',

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoadingController } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ComprasServicioService } from '../compras-servicio.service';
+import { ClCompra, ClDetalleCompra } from '../../../model/ClCompra';
 
 @Component({
   selector: 'app-detalle-boleta',
@@ -15,6 +16,8 @@ export class DetalleBoletaPage implements OnInit {
     public router: Router,
     public route: ActivatedRoute
   ) {}
+  compra: ClCompra = new ClCompra({});
+  detallecompra: ClDetalleCompra[] = [];
 
   ngOnInit() {
     this.getCompras();
@@ -33,7 +36,8 @@ export class DetalleBoletaPage implements OnInit {
     await loading.present();
     await this.restApi.getBoleta(this.route.snapshot.params['id']).subscribe({
       next: (res) => {
-        console.log(res);
+        this.compra = res.registro.Boleta;
+        this.detallecompra = res.registro.BoletaDetalle;
         loading.dismiss();
       },
       complete: () => {},
