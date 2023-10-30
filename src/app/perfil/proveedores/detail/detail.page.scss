@@ -1,0 +1,76 @@
+
+  
+  .color-blanco {
+    color: #fff;
+  }
+  
+  .background-style {
+    background-color: #f4f4f4; 
+  }
+  
+  .centered-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .custom-card {
+    width: 85%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 2px solid #d3d3d3;
+    }
+
+  
+  .detail-section {
+    padding: 20px;
+
+    background-color: #fff; 
+    border-bottom: 2px solid #ddd;
+  }
+  
+  .detail-section h2 {
+    font-size: 34px;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .detail-section p {
+    color: #555; 
+  }
+  
+  .button-section ion-button {
+    margin-top: 15px; 
+  }
+  
+ 
+  
+  .custom-accordion {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .custom-accordion ion-item {
+    --background: #f9f9f9;
+    --color: #333;
+    --padding-start: 20px;
+  }
+  
+  .custom-accordion ion-item[slot='header'] {
+    --padding-start: 20px;
+  }
+  
+  .custom-accordion ion-item[slot='header']:after {
+    font-family: 'Ionicons';
+    content: '\f4c4';
+    font-size: 18px;
+    color: #888;
+    position: absolute;
+    right: 20px;
+  }
+  
+  .custom-accordion ion-item[slot='header'][expanded='true']:after {
+    content: '\f4c3';
+  }
+  

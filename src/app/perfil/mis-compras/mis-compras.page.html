@@ -1,39 +1,42 @@
-<header-menu>
-
-</header-menu>
-
+<header-menu></header-menu>
 
 <ion-content class="background-style">
-
-
   <div class="list-wrapper">
     <ion-card *ngFor="let compra of lista_compras" [routerLink]="obtenerRutaDetalle(compra)" class="custom-card">
       <ion-card-content>
-        <ion-item>
-          <ion-label class="label-fecha">Fecha de compra: {{ compra.documento.fecha_emision }}</ion-label>
-        </ion-item>
-        <ion-item>
-          <ion-label class="label-numero" >N° del pedido: {{ compra.documento.numero }}</ion-label>
-        </ion-item>
-        <ion-item>
-          <ion-label class="label-despacho" >Tipo de despacho: {{ compra.tipoDespacho }}</ion-label>
-        </ion-item>
-        <ion-item *ngIf="compra.documento.tipoDespacho === 1">
-          <ion-label class="label-retiro" >Retiro en: {{ compra.direccion }}</ion-label>
-        </ion-item>
-        <ion-item *ngIf="compra.documento.tipoDespacho === 2">
-          <ion-label class="label-envio" >Envio a domicilio: {{ compra.direccion }}</ion-label>
-        </ion-item>
-        <ion-item>
-          <ion-label class="label-total" >Total del pedido: {{ formatPrice(compra.documento.precio_total) }}</ion-label>
-        </ion-item>
-        <ion-item>
-          <ion-label class="label-estado" >Estado del pedido: {{ compra.estadoPedido }}</ion-label>
-        </ion-item>
+        <div class="item-container">
+          <div class="item-row">
+            <div class="item-label">Fecha de compra:</div>
+            <div class="item-value">{{ compra.documento.fecha_emision }}</div>
+          </div>
+          <div class="item-row">
+            <div class="item-label">N° del pedido:</div>
+            <div class="item-value">{{ compra.documento.numero }}</div>
+          </div>
+          <div class="item-row">
+            <div class="item-label">Tipo de despacho:</div>
+            <div class="item-value">{{ compra.tipoDespacho }}</div>
+          </div>
+          <div *ngIf="compra.documento.tipoDespacho === 1" class="item-row">
+            <div class="item-label">Retiro en:</div>
+            <div class="item-value">{{ compra.direccion }}</div>
+          </div>
+          <div *ngIf="compra.documento.tipoDespacho === 2" class="item-row">
+            <div class="item-label">Envío a domicilio:</div>
+            <div class="item-value">{{ compra.direccion }}</div>
+          </div>
+          <div class="item-row">
+            <div class="item-label">Total del pedido:</div>
+            <div class="item-value">{{ formatPrice(compra.documento.precio_total) }}</div>
+          </div>
+          <div class="item-row">
+            <div class="item-label">Estado del pedido:</div>
+            <div class="item-value">{{ compra.estadoPedido }}</div>
+          </div>
+        </div>
       </ion-card-content>
     </ion-card>
   </div>
 </ion-content>
-
 
 <footer-menu></footer-menu>

@@ -1,42 +1,30 @@
-<header-menu>
-
-</header-menu>
+<header-menu></header-menu>
 <ion-toolbar class="buscador">
   <ion-searchbar placeholder="Buscador" animated (ionChange)="searchProveedores($event)"></ion-searchbar>
 </ion-toolbar>
-<ion-content >
+<ion-content class="background-style">
+  <div class="list-wrapper">
+    <ion-card *ngFor="let pro of searchProveedor" [routerLink]="['/perfil/proveedores/detail',pro.id]" class="custom-card">
+      <ion-item class="bg-gris bold">
+        <h6>Nombre del proveedor</h6>
+      </ion-item>
+      <ion-item>
+        <h6>{{ pro.nombre }}</h6>
+      </ion-item>
+      <ion-item class="bg-gris bold">
+        <h6>Correo electrónico</h6>
+      </ion-item>
+      <ion-item>
+        <h6>{{ pro.email }}</h6>
+      </ion-item>
 
+    </ion-card>
+  </div>
 
-  <ion-card *ngFor="let pro of searchProveedor" [routerLink]="['/perfil/proveedores/edit',pro.id]">
-    <ion-item class="bg-gris bold">
-      <h6>Nombre del proveedor</h6>
-    </ion-item>
-    <ion-item >
-      <h6>{{ pro.nombre }}</h6>
-    </ion-item>
-
-    <ion-item class="bg-gris bold">
-      <h6>Correo electronico</h6>
-    </ion-item>
-    <ion-item>
-          <h6>{{ pro.email }}</h6>
-    </ion-item>
-
-<ion-item class="bg-gris bold">
-      <h6>Teléfono</h6>
-    </ion-item>
-    <ion-item>
-          <h6>{{ pro.telefono}}</h6>
-    </ion-item>
-
-  </ion-card>
-
-
-<ion-fab vertical="bottom" horizontal="end" slot="fixed">
-  <ion-fab-button color="azul">
-    <ion-icon name="add"size="large" [routerLink]="['/perfil/proveedores/add']"></ion-icon>
-  </ion-fab-button>
-</ion-fab>
-
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="azul">
+      <ion-icon name="add" size="large" [routerLink]="['/perfil/proveedores/add']"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>
 <footer-menu></footer-menu>

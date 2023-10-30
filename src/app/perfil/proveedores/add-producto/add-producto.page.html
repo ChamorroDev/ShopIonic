@@ -1,0 +1,47 @@
+<ion-header [translucent]="true"class="bartop">
+  <ion-toolbar class="bartop">
+    <ion-buttons slot="start" >
+      <div class="topbarelementos">
+        <div class="xd">
+          <ion-icon [routerLink]="['/perfil/proveedor/id']" color="light" name="arrow-back" size="large"></ion-icon>
+        </div>
+        <h1 class="color-blanco">Agregar producto al proveedor</h1>
+      </div>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card>
+  <form [formGroup]="proveedorForm" (ngSubmit)="onFormSubmit(proveedorForm.value)">
+
+
+    <ion-item class="bg-gris bold">
+      <h3>Producto</h3>
+    </ion-item>
+
+    <ion-item>
+      <ion-select [(ngModel)]="productoSelect"  formControlName="proveedor_producto" placeholder="Seleccionar Producto" cancelText="Cancelar" okText="Aceptar" label="Productos">
+        <ion-select-option *ngFor="let prod of productos" [value]="prod.id">{{ prod.nombre }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    
+    <ion-item class="bg-gris bold">
+      <h3>Precio</h3>
+    </ion-item>
+    <ion-item >
+      <ion-input type="text" placeholder="Ingresa precio producto" [(ngModel)]="precio" formControlName="proveedor_precio"></ion-input>
+    </ion-item>
+
+
+
+    <ion-button type="submit" color="azul" expand="block"
+      [disabled]="!proveedorForm.valid">Guardar</ion-button>
+  </form>
+</ion-card>
+
+</ion-content>
+
+<footer-menu></footer-menu>
+

@@ -17,6 +17,7 @@
 
 <ion-content >
   <ion-row  *ngIf="mostrarElemento">
+
     <ion-col *ngFor="let product of productos">
       <div class="custom-product-card" >
         <div [routerLink]="['/folder/tienda-producto', product.id]">

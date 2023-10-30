@@ -1,24 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
 import { IonicModule } from '@ionic/angular';
+import { AddBodegaPageRoutingModule } from './add-bodega-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
-
-import { LoginPageRoutingModule } from './login-routing.module';
-
-import { ComponentsModule } from '../components.module';
-import { LoginPage } from './login.page';
-
+import { AddBodegaPage } from './add-bodega.page';
+import { ComponentsModule } from 'src/app/components.module';
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    LoginPageRoutingModule,
-    ReactiveFormsModule,
+    AddBodegaPageRoutingModule,
     ComponentsModule,
+    ReactiveFormsModule,
   ],
-  declarations: [LoginPage],
+  declarations: [AddBodegaPage],
 })
-export class LoginPageModule {}
+export class AddBodegaPageModule {}

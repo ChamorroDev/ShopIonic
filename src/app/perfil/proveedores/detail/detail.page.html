@@ -1,0 +1,62 @@
+<ion-header [translucent]="true" class="bartop">
+  <ion-toolbar class="bartop">
+    <ion-buttons slot="start">
+      <div class="topbarelementos">
+        <div class="xd">
+          <ion-icon
+            [routerLink]="['/perfil/proveedores']"
+            color="light"
+            name="arrow-back"
+            size="large"
+          ></ion-icon>
+        </div>
+
+        <h1 class="color-blanco">Información del proveedor</h1>
+      </div>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="background-style">
+  <div class="centered-content">
+    <ion-card class="custom-card">
+      <div class="detail-section">
+        <h2>{{ proveedor.nombre }}</h2>
+        <p><strong>RUT :</strong> {{ proveedor.rut }}-{{ proveedor.dv }}</p>
+        <p><strong>Correo Electrónico:</strong> {{ proveedor.email }}</p>
+        <p><strong>Teléfono:</strong> {{ proveedor.telefono }}</p>
+      </div>
+     
+        <ion-accordion-group>
+          <ion-accordion value="first" class="custom-accordion">
+            <ion-item slot="header" color="light">
+              <ion-label>Bodegas</ion-label>
+            </ion-item>
+            <div class="ion-padding" slot="content" *ngFor="let item of bodegas">
+          
+                  {{ item.nombre }}, {{ item.direccion }} #{{ item.numeracion }}, {{ item.ciudad_nombre }}, {{ item.region_nombre }}
+          
+            </div>
+          </ion-accordion>
+          <ion-accordion value="second" class="custom-accordion">
+            <ion-item slot="header" color="light">
+              <ion-label>Productos</ion-label>
+            </ion-item>
+            <div class="ion-padding" slot="content" *ngFor="let item of productos">
+          
+              {{ item.nombre }}, {{ item.modelo }} 
+      
+        </div>
+          </ion-accordion>
+        </ion-accordion-group>
+
+      <div class="button-section">
+        <ion-button expand="block" color="azul" [routerLink]="['/perfil/proveedores/add-bodega', proveedor.id]">Añadir bodega</ion-button>
+        <ion-button expand="block" color="azul" [routerLink]="['/perfil/proveedores/add-producto',  proveedor.id]">Añadir producto</ion-button>
+        <ion-button expand="block" color="azul" [routerLink]="['/perfil/proveedores/edit',  proveedor.id]">Editar información</ion-button>
+      </div>
+    </ion-card>
+  </div>
+</ion-content>
+
+<footer-menu></footer-menu>
