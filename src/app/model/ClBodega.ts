@@ -8,6 +8,7 @@ export class ClBodega {
   edited: Date;
   ciudad_nombre: string;
   region_nombre: string;
+  selected: boolean;
 
   constructor(obj: any) {
     this.id = (obj && obj.id) || null;
@@ -19,6 +20,7 @@ export class ClBodega {
     this.edited = (obj && obj.edited) || null;
     this.ciudad_nombre = (obj && obj.ciudad_nombre) || null;
     this.region_nombre = (obj && obj.region_nombre) || null;
+    this.selected = (obj && obj.selected) || null;
   }
 }
 

@@ -2,56 +2,37 @@
   
 </header-menu>
 
-  
 <ion-toolbar class="buscador">
-  <ion-searchbar  placeholder="Buscador" animated (ionChange)="searchProductos($event)" ></ion-searchbar>
+  <ion-searchbar placeholder="Buscador" animated (ionChange)="searchProductos($event)"></ion-searchbar>
 </ion-toolbar>
 
-
-<ion-content [fullscreen]="true" >
-
-  
-    <ion-card  *ngFor="let product of searchProducto " [routerLink]="['/perfil/producto/detail',product.id]" class=" bg-white">
-        <div class="miDiv">
-
-        <div class="width20">
-          <ion-img
-        *ngIf="product.fotos && product.fotos.length > 0"
-        [src]="product.fotos[0]"
-        alt="{{ product.nombre }}"
-        class="imagen"
-      ></ion-img>
-      <ion-img
-        *ngIf="!product.fotos || product.fotos.length === 0"
-        [src]="'ruta/a/imagen/por/defecto.jpg'"
-        alt="{{ product.nombre }}"
-        class="imagen"
-
-      ></ion-img>
-        </div>
-
-        <div class="width80">
-          <ion-item class="bg-gris bold">
-            <h6>{{ product.nombre }}</h6>
-          </ion-item> 
-          <ion-item >
-            <h6>{{ product.descripcion }}</h6>
-          </ion-item> 
-        </div>
+<ion-content [fullscreen]="true">
+  <ion-card *ngFor="let product of searchProducto" [routerLink]="['/perfil/producto/detail', product.id]" class="bg-white">
+    <div class="miDiv">
+      <div class="width20">
+        <ion-img *ngIf="product.fotos && product.fotos.length > 0" [src]="product.fotos[0]" alt="{{ product.nombre }}" class="imagen"></ion-img>
+        <ion-img *ngIf="!product.fotos || product.fotos.length === 0" [src]="'ruta/a/imagen/por/defecto.jpg'" alt="{{ product.nombre }}" class="imagen"></ion-img>
       </div>
-    
- 
-    </ion-card>
 
+      <div class="width80">
+        <ion-item class="bg-gris bold">
+          <h6 class="titulo">{{ product.nombre | slice:0:30 }}</h6>
+        </ion-item>
+        <ion-item>
+          <h6 class="descripcion">{{ product.descripcion | slice:0:60 }}</h6>
+        </ion-item>
+        <ion-item>
+          <h6 class="marca">{{ product.modelo }}</h6>
+        </ion-item>
+      </div>
+    </div>
+  </ion-card>
 
-<ion-fab vertical="bottom" horizontal="end" slot="fixed"  >
-  <ion-fab-button color="azul"  >
-    <ion-icon name="add"   size="large" [routerLink]="['/perfil/producto/add']"></ion-icon>
-  </ion-fab-button>
-</ion-fab>
-
-
-  
-  </ion-content>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="azul">
+      <ion-icon name="add" size="large" [routerLink]="['/perfil/producto/add']"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
 
 <footer-menu></footer-menu>

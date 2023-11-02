@@ -1,0 +1,31 @@
+<ion-header [translucent]="true"class="bartop">
+  <ion-toolbar class="bartop">
+    <ion-buttons slot="start" >
+      <div class="topbarelementos">
+        <div class="xd"  >
+
+          <ion-icon [routerLink]="['/perfil/stock/bodega/']" color="light" name="arrow-back" size="large"></ion-icon>
+        </div>
+        <h1 class="color-blanco">Stock por bodega</h1>
+      </div>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" *ngFor="let producto of productos">
+        <ion-card>
+          <img [src]="producto.foto_producto" alt="producto-imagen" />
+          <ion-card-header>
+            <ion-card-title>{{ producto.producto_nombre }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <p>Cantidad: {{ producto.cantidad }}</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<footer-menu></footer-menu>

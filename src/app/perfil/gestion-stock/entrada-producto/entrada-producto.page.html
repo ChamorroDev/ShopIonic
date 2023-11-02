@@ -1,0 +1,51 @@
+<ion-header [translucent]="true"class="bartop">
+  <ion-toolbar class="bartop">
+    <ion-buttons slot="start" >
+      <div class="topbarelementos">
+        <div class="xd"  >
+
+          <ion-icon [routerLink]="['/perfil/gestion-stock/']" color="light" name="arrow-back" size="large"></ion-icon>
+        </div>
+        <h1 class="color-blanco">Confirmación de productos</h1>
+
+      </div>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" *ngIf="pedido">
+  <ion-card >
+    <ion-card-header>
+      <ion-card-title>{{ pedido.producto_nombre }}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-label>Productos Pedidos:</ion-label>
+        <ion-text>{{ pedido.cantidad }}</ion-text>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Recibidos con anterioridad:</ion-label>
+        <ion-text>{{ pedido.cantidad_recibida}}</ion-text>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Productos Recibidos:</ion-label>
+        <ion-input type="number" [(ngModel)]="cantidadRecibida"></ion-input>
+      </ion-item>
+    </ion-card-content>
+    
+    <ion-item>
+      <ion-label>Estado</ion-label>
+      <ion-select interface="action-sheet" cancelText="Cancelar" [(ngModel)]="pedido.estado_nombre">
+        <ion-select-option *ngFor="let estado of estados" [value]="estado">{{ estado }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-button expand="block" color="azul" (click)="desactivar()">Confirmar</ion-button>
+  </ion-card>
+</ion-content>
+
+<footer-menu></footer-menu>

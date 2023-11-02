@@ -110,6 +110,23 @@ const routes: Routes = [
         (m) => m.MisComprasPageModule
       ),
   },
+  {
+    path: 'abastecer',
+    loadChildren: () =>
+      import('./abastecer/abastecer.module').then((m) => m.AbastecerPageModule),
+  },
+  {
+    path: 'pedidos-proveedor',
+    loadChildren: () => import('./pedidos-proveedor/pedidos-proveedor.module').then( m => m.PedidosProveedorPageModule)
+  },
+  {
+    path: 'gestion-stock',
+    loadChildren: () => import('./gestion-stock/gestion-stock.module').then( m => m.GestionStockPageModule)
+  },
+  {
+    path: 'stock',
+    loadChildren: () => import('./stock/stock.module').then( m => m.StockPageModule)
+  },
 ];
 
 @NgModule({

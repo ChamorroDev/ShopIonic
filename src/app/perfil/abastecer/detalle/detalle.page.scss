@@ -1,0 +1,58 @@
+.color-blanco{
+
+    padding-bottom: 5px;
+}
+
+.ion-padding-left{
+    margin-left: 10px;
+}
+
+.supplier-card {
+    margin-top: 20px;
+    border: 1px solid #e6e6e6;
+    border-radius: 8px;
+    padding: 16px;
+  }
+  
+  .supplier-card ion-item {
+    --padding-start: 0;
+    --inner-padding-end: 0;
+  }
+  
+  .supplier-card ion-label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .supplier-card ion-note {
+    font-size: 18px;
+    color: #2196f3;
+  }
+  .supplier-title {
+    margin-left: 20px; 
+  }
+  .selected-provider {
+    background-color: lightgray; 
+  }
+
+  .price-container {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .supplier-title {
+    font-size: 28px;
+    font-weight: bold;
+    background-color: #f2f2f2; /* Puedes cambiar el color de fondo según tu preferencia */
+    padding: 10px;
+    border-radius: 5px; /* Ajusta el radio de la esquina según tu preferencia */
+    text-align: center;
+  }
+
+  .modal-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff;
+    width: 100%;
+  }
+  

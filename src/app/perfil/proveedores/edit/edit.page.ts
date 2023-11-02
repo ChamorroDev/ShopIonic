@@ -59,7 +59,8 @@ export class EditPage implements OnInit {
     await loading.present();
     await this.restApi.getProveedor(id + '').subscribe({
       next: (data) => {
-        this.proveedor = data.registro;
+        this.proveedor = data.registro.proveedor;
+        console.log(data);
         this.proveedorForm.setValue({
           pro_rut: this.proveedor.rut,
           pro_dv: this.proveedor.dv,

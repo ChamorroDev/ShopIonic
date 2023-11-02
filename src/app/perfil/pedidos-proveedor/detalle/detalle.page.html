@@ -1,0 +1,101 @@
+<ion-header [translucent]="true"class="bartop">
+  <ion-toolbar class="bartop">
+    <ion-buttons slot="start" >
+      <div class="topbarelementos">
+        <div class="xd"  >
+
+          <ion-icon [routerLink]="['/perfil/pedidos-proveedor/']" color="light" name="arrow-back" size="large"></ion-icon>
+        </div>
+        <h1 class="color-blanco">Detalle pedido</h1>
+
+      </div>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding" *ngIf="pedido">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>{{ pedido.estado_nombre }}</ion-card-subtitle>
+      <ion-card-title>{{ pedido.producto_nombre }}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-label>Fecha de creación</ion-label>
+        <ion-text slot="end">{{ pedido.created | date: 'dd/MM/yyyy' }}</ion-text>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Usuario</ion-label>
+        <ion-text slot="end">{{ pedido.usuario_nombre }}</ion-text>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Proveedor</ion-label>
+        <ion-text slot="end">{{ pedido.proveedor_nombre }}</ion-text>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Precio unitario</ion-label>
+        <ion-text slot="end">{{ pedido.precio | currency:'CLP': 'symbol' }}</ion-text>
+      </ion-item>
+
+
+ 
+
+      <ion-item>
+        <ion-label>Cantidad</ion-label>
+        <ion-text slot="end">{{ pedido.cantidad }}</ion-text>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Precio total</ion-label>
+        <ion-text slot="end">{{ pedido.precio*pedido.cantidad  | currency:'CLP': 'symbol' }}</ion-text>
+      </ion-item>
+
+
+      <ion-item>
+        <ion-label>Bodega</ion-label>
+        <ion-text slot="end">{{ pedido.bodega_info.nombre }}</ion-text>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Dirección</ion-label>
+        <ion-text slot="end">{{ pedido.bodega_info.direccion }}</ion-text>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Numeración</ion-label>
+        <ion-text slot="end">{{ pedido.bodega_info.numeracion }}</ion-text>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Ciudad</ion-label>
+        <ion-text slot="end">{{ pedido.bodega_info.ciudad_nombre }}</ion-text>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Región</ion-label>
+        <ion-text slot="end">{{ pedido.bodega_info.region_nombre }}</ion-text>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Comentario</ion-label>
+        <ion-textarea auto-grow placeholder="Añadir comentario" [(ngModel)]="pedido.obs"></ion-textarea>
+      </ion-item>
+    </ion-card-content>
+
+    <ion-item>
+      <ion-label>Estado</ion-label>
+      <ion-select interface="action-sheet" cancelText="Cancelar" [(ngModel)]="pedido.estado_nombre">
+        <ion-select-option *ngFor="let estado of estados" [value]="estado">{{ estado }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    
+
+    <ion-button expand="full" color="azul" class="bold" (click)="desactivar()">Guardar cambios</ion-button>
+  </ion-card>
+</ion-content>
+
+<footer-menu></footer-menu>

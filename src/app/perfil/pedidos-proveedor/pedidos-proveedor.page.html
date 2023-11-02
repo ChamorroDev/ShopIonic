@@ -1,0 +1,32 @@
+
+
+
+
+<header-menu ></header-menu>
+
+
+
+
+<ion-content class="ion-padding">
+  <ion-item>
+    <ion-label>Seleccionar Estado</ion-label>
+    <ion-select interface="action-sheet" placeholder="Todos" cancelText="Cancelar" okText="Aceptar" [(ngModel)]="estadoFiltrado">
+      <ion-select-option value="Todos">Todos</ion-select-option>
+      <ion-select-option *ngFor="let estado of estados" [value]="estado">{{ estado }}</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-list>
+    <ion-item *ngFor="let pedido of filtrarPedidosPorEstado()" [routerLink]="['/perfil/pedidos-proveedor/detalle/', pedido.id]" >
+      <ion-label>
+        <h2>N° de pedido: {{ pedido.id }}</h2>
+        <p><strong>Creación del pedido: </strong>{{ pedido.created | date: 'dd/MM/yyyy'  }}</p>
+        <p><strong>Total: </strong>{{ formatPrice(pedido.precio*pedido.cantidad)  }}</p>
+        <p><strong>Estado: </strong>{{ pedido.estado_nombre }}</p>
+
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<footer-menu></footer-menu>

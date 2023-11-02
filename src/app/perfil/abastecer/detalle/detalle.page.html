@@ -1,0 +1,131 @@
+<ion-header [translucent]="true"class="bartop">
+  <ion-toolbar class="bartop">
+    <ion-buttons slot="start" >
+      <div class="topbarelementos">
+        <div class="xd"  >
+          <ion-icon [routerLink]="['/perfil/abastecer']" color="light" name="arrow-back" size="large"></ion-icon>
+        </div>
+        <h1 class="color-blanco">Comprar producto a proveedor </h1>
+      </div>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="ion-padding">
+  <div class="product-details">
+    <ion-card class="product-card">
+      <img [src]="dataFotos.foto" alt="Producto" class="product-image" />
+      <ion-card-header>
+        <ion-card-subtitle>{{ marca_nombre }}</ion-card-subtitle>
+        <ion-card-title>{{ producto.nombre }}</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <p><strong>Precio Mercado:</strong> {{ precio }}</p>
+        <p><strong>Modelo:</strong> {{ producto.modelo }}</p>
+      </ion-card-content>
+
+      <ion-accordion-group>
+        <ion-accordion value="first" class="custom-accordion">
+          <ion-item slot="header" color="light">
+            <ion-label>Categorias</ion-label>
+          </ion-item>
+          <div class="ion-padding-left" slot="content" *ngFor="let cat of categorias">
+            <p><strong>{{ cat.name }}</strong></p>
+
+          </div>
+        </ion-accordion>
+        <ion-accordion value="second" class="custom-accordion">
+          <ion-item slot="header" color="light">
+            <ion-label>Atributos</ion-label>
+          </ion-item>
+          <div class="ion-padding-left" slot="content" *ngFor="let atri of atributos">
+            <p><strong>{{ atri.atributo_nombre }}:</strong> {{ atri.atributo_valor }}</p>
+
+      </div>
+        </ion-accordion>
+      </ion-accordion-group>
+    </ion-card>
+
+    
+    <h2 class="supplier-title">Elige un proveedor</h2>
+
+    <ion-card class="supplier-card" *ngFor="let prov of proveedor" [class.selected-provider]="prov.selected"  lines="full">
+      <ion-label>{{ prov.proveedor_nombre }}</ion-label>
+      <div class="price-container">
+        <ion-note>{{ formatPrice(prov.precio) }}</ion-note>
+      </div>
+      <ion-button id="open-modal{{  prov.proveedor_nombre }}"(click)="onProviderClicked(prov)" color="azul">Pedir</ion-button>
+      <ion-modal trigger="open-modal{{prov.proveedor_nombre}}" >
+        <ng-template>
+          <ion-header>
+            <ion-toolbar color="azul">
+              <ion-buttons slot="start">
+                <ion-button (click)="cancel()" color="light">Volver</ion-button>
+              </ion-buttons>
+              <ion-title class="modal-title">Bodegas y Cantidad</ion-title>
+            </ion-toolbar>
+          </ion-header>
+          <ion-content>
+
+            <ion-grid>
+              
+
+
+              <ion-row class="ion-align-items-center ion-justify-content-center" *ngFor="let bod of bodegas" (click)="onBodegaClicked(bod)" [class.selected-provider]="bod.selected">
+                <ion-col size="auto">
+                  <h2 style="color: #000000; font-size: 24px; font-weight: bold; text-align: center;">{{bod.nombre}}</h2>
+                  <p>Dirección: {{bod.direccion}}</p>
+                  <p>Numeración: {{bod.numeracion}}</p>
+                  <p>Ciudad: {{bod.ciudad_nombre}}</p>
+                  <p>Región: {{bod.region_nombre}}</p>
+                </ion-col>
+              </ion-row>
+
+              <ion-row class="ion-align-items-center ion-justify-content-center">
+                <ion-col size="auto">
+                  <h2 style="color: #000000; font-size: 30px; font-weight: bold; text-align: center;">Elige la cantidad</h2>
+                </ion-col>
+              </ion-row>
+              <ion-row class="ion-align-items-center ion-justify-content-center">
+                <ion-col size="auto">
+                  <ion-button color="azul"(click)="decrementarCantidad()">-</ion-button>
+                </ion-col>
+                <ion-col size="auto">
+                  <ion-input type="number" [(ngModel)]="cantidad"></ion-input>
+                </ion-col>
+                <ion-col size="auto">
+                  <ion-button color="azul" (click)="incrementarCantidad()">+</ion-button>
+                </ion-col>
+              </ion-row>
+              
+
+
+
+              <ion-row class="ion-align-items-center ion-justify-content-center">
+                <ion-col size="auto">
+                  <ion-button expand="block" (click)="onFormSubmit()" (click)="modal.dismiss()" (click)="cancel()" color="azul">Comprar</ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-content>
+        </ng-template>
+      </ion-modal>
+      
+      
+      
+      
+    </ion-card>
+
+    
+    
+    
+    
+    
+
+  </div>
+</ion-content>
+
+<footer-menu></footer-menu>
+

@@ -1,0 +1,43 @@
+
+
+
+
+<header-menu ></header-menu>
+
+
+
+
+<ion-content >
+  <ion-grid style="margin-top: 50px;">
+    <ion-row>
+      <ion-col>
+        <ion-card class="ion-text-center"  [routerLink]="['/perfil/stock/bodega/']">
+          <fa-icon icon="warehouse" style="font-size: 130px"></fa-icon>
+
+          <ion-card-header>
+            <ion-card-title>Bodega</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <p>Aquí puedes revisar el stock por bodega.</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <ion-col>
+        <ion-card class="ion-text-center" [routerLink]="['/perfil/stock/producto/']">
+          <ion-icon name="logo-buffer" style="font-size: 150px;"></ion-icon>
+          <ion-card-header>
+            <ion-card-title>Producto</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <p>Aquí puedes revisar el stock por producto.</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+
+
+<footer-menu></footer-menu>

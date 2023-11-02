@@ -1,0 +1,29 @@
+<header-menu ></header-menu>
+
+<ion-content class="ion-padding">
+  <ion-item>
+    <ion-label>Seleccionar Bodega</ion-label>
+    <ion-select interface="action-sheet" placeholder="Todas las bodegas" cancelText="Cancelar" okText="Aceptar" [(ngModel)]="bodegaFiltrada">
+      <ion-select-option value="Todas las bodegas">Todas las bodegas</ion-select-option>
+      <ion-select-option *ngFor="let bodega of bodegas" [value]="bodega">{{ bodega }}</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-list>
+    <ion-item *ngFor="let pedido of filtrarPedidosPorBodega()" [routerLink]="['/perfil/gestion-stock/entrada-producto/', pedido.id]" >
+      <ion-label>
+        <h2>N° de pedido: {{ pedido.id }}</h2>
+        <p><strong>Creación del pedido: </strong>{{ pedido.created | date: 'dd/MM/yyyy'  }}</p>
+        <p><strong>Total: </strong>{{ formatPrice(pedido.precio*pedido.cantidad)  }}</p>
+        <p><strong>Estado: </strong>{{ pedido.estado_nombre }}</p>
+
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+
+</ion-content>
+
+
+
+<footer-menu></footer-menu>

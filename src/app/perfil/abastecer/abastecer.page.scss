@@ -1,0 +1,45 @@
+
+.bg-white{
+    background-color: white;
+  }
+  
+  .miDiv{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    margin-top: 5%;
+    justify-content:space-around;
+    align-items: center;
+  
+  }
+  
+  .buscador{
+    --background:#00bbfe ;
+  }
+  
+  .width20 {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .imagen {
+    width: 100px;
+    height: 100px;
+    object-position: center; }
+  
+  .width80{
+    width: 80%;
+    
+  }
+  
+  
+  .ion-color-azul {
+    --ion-color-base: var(--ion-color-azul);
+    --ion-color-base-rgb: var(--ion-color-azul-rgb);
+    --ion-color-contrast: var(--ion-color-azul-contrast);
+    --ion-color-contrast-rgb: var(--ion-color-azul-contrast-rgb);
+    --ion-color-shade: var(--ion-color-azul-shade);
+    --ion-color-tint: var(--ion-color-azul-tint);
+  }
