@@ -23,7 +23,7 @@ export class StockServicioService {
     return this.http.get<any>(apiUrl);
   }
   getBodegaDetalle(id: number) {
-    return this.http.get<any>(apiUrlDetalle + id + '/');
+    return this.http.get<any>(apiUrlDetalle + id );
   }
   getProductos() {
     return this.http.get<any>(apiUrlProducto);

@@ -1,0 +1,22 @@
+<header-menu></header-menu>
+
+<ion-content>
+  <ion-searchbar (ionChange)="filterItems()"></ion-searchbar>
+
+  <ion-list *ngIf="filteredItems.length > 0">
+    <ion-item *ngFor="let item of filteredItems">
+      <ion-label>
+        <h2>N° Pedido: {{ item.id }}</h2>
+        <p><strong>Tipo: </strong>{{ item.Tipo }}</p>
+        <p><strong>Fecha: </strong>{{ item.fecha  | date: 'dd/MM/yyyy' }}</p>
+        <p><strong>Dirección: </strong>{{ item.direccion }}</p>
+        <p><strong>Tipo de Despacho: </strong>{{ item.tipoDespacho }}</p>
+        <p><strong>Estado del Pedido: </strong>{{ item.estadoPedido }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <div *ngIf="filteredItems.length === 0">No se encontraron resultados.</div>
+</ion-content>
+
+<footer-menu></footer-menu>

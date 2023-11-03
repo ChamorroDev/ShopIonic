@@ -127,6 +127,10 @@ const routes: Routes = [
     path: 'stock',
     loadChildren: () => import('./stock/stock.module').then( m => m.StockPageModule)
   },
+  {
+    path: 'salida-producto-despacho',
+    loadChildren: () => import('./salida-producto-despacho/salida-producto-despacho.module').then( m => m.SalidaProductoDespachoPageModule)
+  },
 ];
 
 @NgModule({
