@@ -14,7 +14,7 @@ import { LoadingController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { CarroServicioService } from './carro/carro-servicio.service';
 import { globalData } from 'src/app/constants/user';
-
+import { AlertController } from '@ionic/angular';
 @Component({
   selector: 'app-folder',
   templateUrl: './folder.page.html',
@@ -30,7 +30,8 @@ export class FolderPage implements OnInit {
     public restApiCarro: CarroServicioService,
     public router: Router,
     private navCtrl: NavController,
-    private modalController: ModalController
+    private modalController: ModalController,
+    public alertController: AlertController
   ) {}
 
   resClCategoria: ResClProducto = new ResClProducto({});
@@ -71,6 +72,16 @@ export class FolderPage implements OnInit {
     producto: 0,
     cantidad: 0,
   };
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'No hay suficiente stock',
+      message: 'Lo sentimos, no hay suficiente stock para este producto.',
+      buttons: ['OK'],
+    });
+
+    await alert.present();
+  }
 
   async addcart(id: number) {
     this.productoCarro.cliente = globalData.RUT_CLIENTE;
@@ -79,7 +90,11 @@ export class FolderPage implements OnInit {
 
     await this.restApiCarro.addProducto(this.productoCarro).subscribe({
       next: (res) => {
-        this.router.navigate(['/folder/carro']);
+        console.log(res);
+        if (res.msg === 'no stock') {
+          this.presentAlert();
+        }
+        //this.router.navigate(['/folder/carro']);
       },
       complete: () => {},
       error: (err) => {
@@ -102,6 +117,7 @@ export class FolderPage implements OnInit {
         this.searchProducto = this.productos;
         loading.dismiss();
         this.mostrarElemento = true;
+        console.log(res);
       },
       complete: () => {},
       error: (err) => {

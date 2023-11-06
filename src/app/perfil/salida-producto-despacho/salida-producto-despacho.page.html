@@ -1,10 +1,9 @@
 <header-menu></header-menu>
 
 <ion-content>
-  <ion-searchbar (ionChange)="filterItems()"></ion-searchbar>
 
   <ion-list *ngIf="filteredItems.length > 0">
-    <ion-item *ngFor="let item of filteredItems">
+    <ion-item *ngFor="let item of filteredItems"(click)="irADetalleConParametros(item.id, item.Tipo)">
       <ion-label>
         <h2>N° Pedido: {{ item.id }}</h2>
         <p><strong>Tipo: </strong>{{ item.Tipo }}</p>

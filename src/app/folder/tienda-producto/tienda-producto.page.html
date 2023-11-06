@@ -103,7 +103,8 @@
         </ion-col>
 
         <ion-col>
-          <ion-button (click)="addcart()" color="success">Añadir al carrito</ion-button>
+          <ion-button *ngIf="producto.stock_total>0" (click)="addcart()" color="success">Añadir al carrito</ion-button>
+          <ion-button *ngIf="producto.stock_total<=0" type="submit"  vertical="bottom"   color="medium" expand="block">Sin stock</ion-button>
 
             
           </ion-col>

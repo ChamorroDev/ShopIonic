@@ -45,7 +45,7 @@ export class DetailPage implements OnInit {
 
   async getProveedor(id: number) {
     const loading = await this.loadingController.create({
-      message: 'loading...',
+      message: 'Cargando...',
     });
     await loading.present();
     await this.restApi.getProveedor(id + '').subscribe({

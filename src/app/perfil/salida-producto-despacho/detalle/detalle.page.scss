@@ -1,0 +1,23 @@
+ion-select {
+    --padding-start: 10px;
+    --padding-end: 10px;
+  }
+  
+  ion-select::part(icon) {
+    color: rgb(0, 208, 255);
+  }
+  
+  ion-select::part(text) {
+    color: rgb(88, 166, 255);
+  }
+
+
+  .margin-15{
+    margin-top: 25px;
+
+  }
+  
+  .margin-15-b{
+    margin-bottom: 20px;
+
+  }

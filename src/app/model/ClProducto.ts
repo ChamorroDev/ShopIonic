@@ -53,6 +53,7 @@ export class ClProducto {
   created: Date;
   edited: Date;
   actived: boolean;
+  stock_total: number;
   constructor(obj: any) {
     this.id = (obj && obj.id) || null;
     this.nombre = (obj && obj.nombre) || null;
@@ -65,6 +66,7 @@ export class ClProducto {
     this.edited = (obj && obj.edited) || null;
     this.created = (obj && obj.created) || null;
     this.fotos = (obj && obj.fotos) || null;
+    this.stock_total = (obj && obj.stock_total) || null;
   }
 }
 

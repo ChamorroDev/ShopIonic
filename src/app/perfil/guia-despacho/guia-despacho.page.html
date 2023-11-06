@@ -1,0 +1,17 @@
+<header-menu></header-menu>
+<ion-content>
+  <ion-list lines="full">
+    <ion-item *ngFor="let registro of registros" [routerLink]="['/perfil/guia-despacho/detalle',registro.id]">
+      <ion-label>
+        <h2>ID Despacho: {{ registro.id }}</h2>
+        <p>Camionero: {{ registro.camionero_nombre }} {{ registro.camionero_appaterno }} {{ registro.camionero_apmaterno }}</p>
+        <p>Estado: {{ registro.estado_nombre }}</p>
+        <p>Creador de la guia: {{ registro.user_created }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+
+
+<footer-menu></footer-menu>

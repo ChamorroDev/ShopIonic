@@ -130,7 +130,11 @@ const routes: Routes = [
   {
     path: 'salida-producto-despacho',
     loadChildren: () => import('./salida-producto-despacho/salida-producto-despacho.module').then( m => m.SalidaProductoDespachoPageModule)
+  },  {
+    path: 'guia-despacho',
+    loadChildren: () => import('./guia-despacho/guia-despacho.module').then( m => m.GuiaDespachoPageModule)
   },
+
 ];
 
 @NgModule({

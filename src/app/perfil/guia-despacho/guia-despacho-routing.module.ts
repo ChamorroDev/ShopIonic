@@ -1,19 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { SalidaProductoDespachoPage } from './salida-producto-despacho.page';
+import { GuiaDespachoPage } from './guia-despacho.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: SalidaProductoDespachoPage,
-  },
-  {
-    path: 'generar-orden',
-    loadChildren: () =>
-      import('./generar-orden/generar-orden.module').then(
-        (m) => m.GenerarOrdenPageModule
-      ),
+    component: GuiaDespachoPage,
   },
   {
     path: 'detalle/:id',
@@ -26,4 +19,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class SalidaProductoDespachoPageRoutingModule {}
+export class GuiaDespachoPageRoutingModule {}

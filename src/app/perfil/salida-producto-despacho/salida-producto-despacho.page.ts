@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { LoadingController } from '@ionic/angular';
-import { ActivatedRoute,Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { SalidaServicioService } from './salida-servicio.service';
-import { ClTarjeta } from '../../model/ClTarjeta';
-import { globalData } from 'src/app/constants/user';
 
 @Component({
   selector: 'app-salida-producto-despacho',
@@ -12,24 +10,21 @@ import { globalData } from 'src/app/constants/user';
   styleUrls: ['./salida-producto-despacho.page.scss'],
 })
 export class SalidaProductoDespachoPage implements OnInit {
+  constructor(
+    public restApi: SalidaServicioService,
+    public loadingController: LoadingController,
 
-  constructor(public restApi: SalidaServicioService
-    , public loadingController: LoadingController
-    
-    , public router: Router) { 
-    }
-    public items: any[] = []; 
-    public filteredItems: any[] = [];
-    public selectedBodega: string = 'Todas';
+    public router: Router
+  ) {}
+  public items: any[] = [];
+  public filteredItems: any[] = [];
+  public selectedBodega: string = 'Todas';
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  ionViewWillEnter() {
     this.getPedidoParaDespacho();
   }
-  ionViewWillEnter(){
-    this.getPedidoParaDespacho();
-  }
-
-
 
   filterItems() {
     if (this.selectedBodega === 'Todas') {
@@ -40,26 +35,29 @@ export class SalidaProductoDespachoPage implements OnInit {
       );
     }
   }
+  irADetalleConParametros(id: string, tipo: string) {
+    this.router.navigate(['/perfil/salida-producto-despacho/detalle/', id], {
+      queryParams: { tipo: tipo },
+    });
+  }
 
   async getPedidoParaDespacho() {
     const loading = await this.loadingController.create({
-      message: 'Cargando...'
+      message: 'Cargando...',
     });
     await loading.present();
-    await this.restApi.getPedidoParaDespacho()
-      .subscribe({
-        next: (res) => {
-          this.items = res.registro;
-          this.filteredItems=this.items;
-          console.log(this.items)
-          loading.dismiss();
-        }
-        , complete: () => { }
-        , error: (err) => {
-          console.log("Err:" + err);
-          loading.dismiss();
-        }
-      })
+    await this.restApi.getPedidoParaDespacho().subscribe({
+      next: (res) => {
+        this.items = res.registro;
+        this.filteredItems = this.items;
+        console.log(this.items);
+        loading.dismiss();
+      },
+      complete: () => {},
+      error: (err) => {
+        console.log('Err:' + err);
+        loading.dismiss();
+      },
+    });
   }
-
 }

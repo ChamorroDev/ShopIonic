@@ -1,0 +1,50 @@
+<ion-header [translucent]="true" class="bartop" *ngIf="cargar">
+  <ion-toolbar class="bartop">
+    <ion-buttons slot="start">
+      <div class="topbarelementos">
+        <div class="xd">
+          <ion-icon
+            [routerLink]="['/perfil/guia-despacho']"
+            color="light"
+            name="arrow-back"
+            size="large"
+          ></ion-icon>
+        </div>
+
+        <h1 class="color-blanco">Detalle guía de despacho {{ guia.id }}</h1>
+      </div>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="cargar">
+  
+
+      <ion-card class="margin-top">
+        <ion-card-header>
+          <ion-card-subtitle>ID Despacho: {{ guia.id }}</ion-card-subtitle>
+          <ion-card-title>Camionero: {{ guia.camionero_nombre }} {{ guia.camionero_appaterno }} {{ guia.camionero_apmaterno }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <p>Estado: {{ guia.estado_nombre }}</p>
+          <p>Creador de la guia: {{ guia.user_created }}</p>
+        </ion-card-content>
+      </ion-card>
+
+  
+      <ion-card *ngFor="let item of info">
+        <ion-card-header>
+          <ion-card-subtitle>{{ item.producto_nombre }}</ion-card-subtitle>
+          <ion-card-title>Cantidad: {{ item.cantidad }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <p>Bodega Origen: {{ item.bodega_nombre }}</p>
+          <p>{{ item.bodega_ciudad }}, {{ item.bodega_region }}</p>
+        </ion-card-content>
+      </ion-card>
+
+</ion-content>
+
+
+
+<footer-menu *ngIf="cargar"></footer-menu>

@@ -61,45 +61,6 @@
 
 
 
-<ion-grid>
-  <ion-row>
-    <ion-col size="12">
-      <ion-card   >
-        <ion-card-content class="center-content">
-          <ion-grid class="jcspace">
-            <ion-row >
-              
-              <ion-col class="icon-column" [routerLink]="['/perfil/abastecer/']">
-                <div class="circle-icon">
-                  <fa-icon icon="trailer" style="color: #19aeff;" size="2xl" ></fa-icon>
-
-                </div>
-                Abastecer stock
-              </ion-col>
-
-              <ion-col class="icon-column" [routerLink]="['/perfil/pedidos-proveedor/']">
-                <div class="circle-icon">
-                  <fa-icon icon="file-invoice-dollar" style="color: #19aeff;" size="2xl" ></fa-icon>
-
-                </div>
-                Ordenes de compras
-              </ion-col>
-
-              <ion-col class="icon-column" [routerLink]="['/perfil/proveedores/']">
-                <div class="circle-icon">
-                  <fa-icon icon="building" style="color: #19aeff;" size="2xl" ></fa-icon>
-
-                </div>
-                Proveedores
-              </ion-col>
-
-            </ion-row>
-          </ion-grid>
-        </ion-card-content>
-      </ion-card>
-    </ion-col>
-  </ion-row>
-</ion-grid>
 
 <ion-grid>
   <ion-row>
@@ -125,12 +86,12 @@
                 Movimiento internoff
               </ion-col>
 
-              <ion-col class="icon-column" [routerLink]="['/perfil/proveedores/']">
+              <ion-col class="icon-column" [routerLink]="['/perfil/guia-despacho/']">
                 <div class="circle-icon">
                   <fa-icon icon="file-invoice" style="color: #19aeff;" size="2xl" ></fa-icon>
 
                 </div>
-                Guia Despachoff
+                Guias de Despachos
               </ion-col>
 
               <ion-col class="icon-column" [routerLink]="['/perfil/gestion-stock/']">
@@ -141,13 +102,7 @@
                 Entrada productos proveedor
               </ion-col>
 
-              <ion-col class="icon-column" [routerLink]="['/perfil/salida-producto-despacho/']">
-                <div class="circle-icon">
-                  <fa-icon icon="truck-arrow-right" style="color: #19aeff;" size="2xl" ></fa-icon>
-
-                </div>
-                Salida productos
-              </ion-col>
+         
 
               <ion-col class="icon-column" [routerLink]="['/perfil/stock/']">
                 <div class="circle-icon">
@@ -166,6 +121,57 @@
     </ion-col>
   </ion-row>
 </ion-grid>
+
+<ion-grid>
+  <ion-row>
+    <ion-col size="12">
+      <ion-card   >
+        <ion-card-content class="center-content">
+          <ion-grid class="jcspace">
+            <ion-row >
+
+              <ion-col class="icon-column" [routerLink]="['/perfil/salida-producto-despacho/']">
+                <div class="circle-icon">
+                  <fa-icon icon="truck-arrow-right" style="color: #19aeff;" size="2xl" ></fa-icon>
+
+                </div>
+                Crear Guia de Despachos
+              </ion-col>
+              
+              <ion-col class="icon-column" [routerLink]="['/perfil/abastecer/']">
+                <div class="circle-icon">
+                  <fa-icon icon="trailer" style="color: #19aeff;" size="2xl" ></fa-icon>
+
+                </div>
+                Abastecer stock
+              </ion-col>
+
+              <ion-col class="icon-column" [routerLink]="['/perfil/pedidos-proveedor/']">
+                <div class="circle-icon">
+                  <fa-icon icon="file-invoice-dollar" style="color: #19aeff;" size="2xl" ></fa-icon>
+
+                </div>
+                Ordenes de compras
+              </ion-col>
+
+
+
+              <ion-col class="icon-column" [routerLink]="['/perfil/proveedores/']">
+                <div class="circle-icon">
+                  <fa-icon icon="building" style="color: #19aeff;" size="2xl" ></fa-icon>
+
+                </div>
+                Proveedores
+              </ion-col>
+
+            </ion-row>
+          </ion-grid>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
 
 <ion-grid>
   <ion-row>

@@ -31,9 +31,13 @@
             </ion-card-header>
             <ion-card-content>
               <p class="product-description">{{ product.descripcion }}</p>
+              <p class="product-description">Stock:{{ product.stock_total }}</p>
+
             </ion-card-content>
           </div>
-          <ion-button type="submit"  vertical="bottom"   (click)="addcart(product.id)" color="azul" expand="block">Agregar al carro</ion-button>
+          <ion-button *ngIf="product.stock_total>0" type="submit"  vertical="bottom"   (click)="addcart(product.id)" color="azul" expand="block">Agregar al carro</ion-button>
+          <ion-button *ngIf="product.stock_total<=0" type="submit"  vertical="bottom"   color="medium" expand="block">Sin stock</ion-button>
+
       </div>
     </ion-col>
   </ion-row>

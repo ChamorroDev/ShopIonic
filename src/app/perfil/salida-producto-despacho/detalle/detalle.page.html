@@ -1,0 +1,91 @@
+<ion-header [translucent]="true"class="bartop">
+  <ion-toolbar class="bartop">
+    <ion-buttons slot="start" >
+      <div class="topbarelementos">
+        <div class="xd"  >
+
+          <ion-icon [routerLink]="['/perfil/salida-producto-despacho/']" color="light" name="arrow-back" size="large"></ion-icon>
+        </div>
+        <h1 class="color-blanco">Detalle pedido y su stock</h1>
+      </div>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="cargar">
+
+  <ion-card   class="margin-15 margin-15-b">
+    <ion-card-header>
+
+      <ion-card-title>Designar camionero para el despacho</ion-card-title>
+    </ion-card-header>
+
+
+
+  <ion-item>
+    <ion-select 
+    placeholder="" 
+    [(ngModel)]="selectedEmpleado" 
+    (ionChange)="onEmpleadoChange()" 
+    label="Seleccione un camionero" 
+    cancelText="Cancelar" 
+    okText="Aceptar">
+      <ion-select-option *ngFor="let empleado of lista_camioneros" [value]="empleado.rut.rut">
+        {{ empleado.rut.rut }}-{{ empleado.rut.dv }}, {{ empleado.nombre }} {{ empleado.rut.appaterno }} <!-- Cambia 'nombre' por el campo que corresponda al nombre del empleado -->
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
+
+</ion-card>
+
+  
+  <div *ngFor="let item of producto">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>Producto ID: {{ item.info_producto.producto.id }}</ion-card-subtitle>
+        <ion-card-title>{{ item.info_producto.producto.nombre }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-img [src]="item.info_producto.producto.fotos[0]"></ion-img>
+        <p><strong>Cantidad del pedido: </strong>{{ item.cantidad }}</p>
+        <p><strong>Cantidad entregada al cliente: </strong>{{ item.cantidad_entregada }}</p>
+        <p><strong>Total en Bodegas: </strong>{{ item.info_producto.total_en_bodegas }}</p>
+        <ion-list>
+        <ion-card-title>Seleccione:</ion-card-title>
+          <ion-item *ngFor="let bodega of item.info_producto.bodegas">
+            <ion-label>Bodega: {{ bodega.bodega_info.nombre }}</ion-label>
+            <ion-label>Cantidad: {{ bodega.cantidad }}</ion-label>
+            <ion-button expand="block" color="azul" id="open-modal{{ bodega.bodega_info.id }}"  >Agregar</ion-button>
+              <ion-modal  #modal trigger="open-modal{{ bodega.bodega_info.id }}" [initialBreakpoint]="0.25" [breakpoints]="[0, 0.25, 0.5, 0.75]">
+                <ng-template>
+                <ion-header>
+                  <ion-toolbar>
+                    <ion-title>Modal</ion-title>
+                    <ion-buttons slot="end">
+                      <ion-button (click)="modal.dismiss()">Cerrar</ion-button>
+                    </ion-buttons>
+                  </ion-toolbar>
+                </ion-header>
+                <ion-content class="ion-padding">
+                  <ion-item>
+                    <ion-label position="stacked">Añadir cantidad del producto</ion-label>
+                    <ion-input type="number" [(ngModel)]="cantidad"></ion-input>
+                  </ion-item>
+                  <ion-button expand="block" color="azul" (click)="guardarAlCarrito(bodega.bodega_info.id,item.info_producto.producto.id)" (click)="modal.dismiss()">Guardar en Carrito</ion-button>
+                </ion-content>
+              </ng-template>
+              </ion-modal>
+          </ion-item>
+        </ion-list>
+        <ion-button expand="block" color="azul" [routerLink]="['/perfil/abastecer/detalle/', item.info_producto.producto.id]">Abastecer Producto</ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+  <ion-button expand="block" color="azul"(click)="desactivar()">Crear Guia de Despacho</ion-button>
+
+</ion-content>
+
+
+
+<footer-menu></footer-menu>
+
