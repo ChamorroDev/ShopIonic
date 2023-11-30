@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ClCliente, ClApiResp } from '../../model/ClUsuario';
+import { URLAPIDJANGO } from '../../constants/URLAPI';
 
 import { Observable, of, throwError } from 'rxjs';
 import { catchError, tap, map } from 'rxjs/operators';
@@ -9,7 +10,7 @@ import {
   HttpErrorResponse,
 } from '@angular/common/http';
 
-const apiUrl = 'http://127.0.0.1:8000/api/backend/cliente';
+const apiUrl = URLAPIDJANGO + 'api/backend/cliente';
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
 };
